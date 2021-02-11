@@ -156,7 +156,27 @@ const MenuHeader = styled.div`
   }
 `;
 
-const HideSidebarButton = styled.button``;
+const HideSidebarButton = styled.button`
+  && {
+    border-top: 1px solid ${theme.surfaceD};
+    display: flex;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    font-family:${theme.fontFamily};
+    color:${theme.textColor};
+    cursor: pointer;
+
+    &:hover{
+      background-color: ${theme.primaryColor};
+      color:${theme.primaryColorText};
+    }
+
+    & > i {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+  }
+`;
 
 function App() {
   // active ripple effect
@@ -263,8 +283,9 @@ function App() {
             </MenuItem>
           </Menu>
 
-          <HideSidebarButton>
+          <HideSidebarButton className="p-reset">
             <i className="pi pi-angle-double-left" />
+            <div>Hide sidebar</div>
           </HideSidebarButton>
         </Sidebar>
         <div>
