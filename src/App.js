@@ -1,6 +1,7 @@
 import React from "react";
 import PrimeReact from "primereact/api";
 import { Button } from "primereact/button";
+import { Ripple } from "primereact/ripple";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
@@ -123,6 +124,12 @@ const SubMenu = styled.div`
   padding: 8px;
   border-radius: 5px;
 
+  &:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: 0 0 0 0.2rem #a6d5fa;
+  }
+
   &:hover {
     cursor: pointer;
     background-color: ${theme.primaryColor};
@@ -162,13 +169,19 @@ const HideSidebarButton = styled.button`
     display: flex;
     padding: 0.5rem 1rem;
     align-items: center;
-    font-family:${theme.fontFamily};
-    color:${theme.textColor};
+    font-family: ${theme.fontFamily};
+    color: ${theme.textColor};
     cursor: pointer;
 
-    &:hover{
+    &:hover {
+      outline: 0 none;
+      outline-offset: 0;
+      box-shadow: 0 0 0 0.2rem #a6d5fa;
+    }
+
+    &:hover {
       background-color: ${theme.primaryColor};
-      color:${theme.primaryColorText};
+      color: ${theme.primaryColorText};
     }
 
     & > i {
@@ -189,19 +202,21 @@ function App() {
       <AppWrapper>
         <Sidebar>
           <Logo>
-            <img src="/logo.png" />
+            <img src="/logo.png" alt="logo" />
           </Logo>
 
           <Menu>
             <MenuItem>
-              <MenuItemContent>
+              <MenuItemContent className="p-ripple">
+                <Ripple />
                 <MenuItemLeadingIcon className="pi pi-home" />
                 <MenuItemLabel>Dashboard</MenuItemLabel>
                 <MenuItemTrailingIcon className="pi pi-chevron-down" />
               </MenuItemContent>
 
               <MenuItemChildren>
-                <SubMenu>
+                <SubMenu className="p-ripple">
+                  <Ripple />
                   <SubMenuLeadingIcon className="pi pi-plus" />
                   <SubMenuLabel>Create</SubMenuLabel>
                 </SubMenu>
@@ -230,7 +245,7 @@ function App() {
                 {/* <MenuItemTrailingIcon className="pi pi-chevron-down" /> */}
               </MenuItemContent>
             </MenuItem>
-
+            {/* 
             <MenuItem>
               <MenuItemContent>
                 <MenuItemLeadingIcon className="pi pi-home" />
@@ -250,7 +265,7 @@ function App() {
                 <MenuItemLeadingIcon className="pi pi-home" />
                 <MenuItemLabel>Dashboard</MenuItemLabel>
               </MenuItemContent>
-            </MenuItem>
+            </MenuItem> */}
 
             <MenuHeader>Monthly Report</MenuHeader>
 
@@ -283,7 +298,8 @@ function App() {
             </MenuItem>
           </Menu>
 
-          <HideSidebarButton className="p-reset">
+          <HideSidebarButton className="p-reset p-ripple p-component">
+            <Ripple />
             <i className="pi pi-angle-double-left" />
             <div>Hide sidebar</div>
           </HideSidebarButton>
