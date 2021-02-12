@@ -4,6 +4,8 @@ import theme from "../styles/theme";
 import SidebarLogo from "./SidebarLogo";
 import SidebarMenu from "./SidebarMenu";
 import { useState } from "react";
+import { Transition } from "react-transition-group";
+import { useRef } from "react";
 
 const SidebarWrapper = styled.div`
   display: flex;
@@ -20,7 +22,6 @@ const HideSidebarButtonWrapper = styled.button`
     display: flex;
     padding: ${(props) => (props.minimize ? ".5rem" : "1rem")};
     align-items: center;
-    /* justify-items: center; */
     justify-content: ${(props) => (props.minimize ? "center" : "flex-start")};
     font-family: ${theme.fontFamily};
     color: ${theme.textColor};
@@ -48,6 +49,21 @@ const HideSidebarButtonWrapper = styled.button`
   }
 `;
 
+const sidebarTransitionDuration = 300;
+
+const sidebarDefaultStyle = {
+  transition: `width ${sidebarTransitionDuration}ms ease-in-out`,
+  width: '225px',
+}
+
+const sidebarTransitionStyles = {
+  entering: { width: "60px" },
+  entered: { width: "60px" },
+  exiting: { width: "225px" },
+  exited: { width: "225px" },
+};
+
+
 const HideSidebarButton = ({ minimize, onClick }) => {
   return (
     <HideSidebarButtonWrapper
@@ -64,17 +80,29 @@ const HideSidebarButton = ({ minimize, onClick }) => {
 
 function Sidebar() {
   const [minimize, setMinimize] = useState(false);
-
+  const nodeRef = useRef(null);
   const _toggleMinimizeButton = () => setMinimize(!minimize);
 
   return (
-    <SidebarWrapper minimize={minimize} className="p-shadow-12">
-      <SidebarLogo minimize={minimize} src="/logo.png" />
+    <Transition in={minimize} timeout={sidebarTransitionDuration} nodeRef={nodeRef}>
+      {(state) => (
+        <SidebarWrapper
+          ref={nodeRef}
+          style={{...sidebarDefaultStyle, ...sidebarTransitionStyles[state]}}
+          minimize={!minimize}
+          className="p-shadow-12"
+        >
+          <SidebarLogo minimize={minimize} src="/logo.png" />
 
-      <SidebarMenu minimize={minimize} />
+          <SidebarMenu minimize={minimize} />
 
-      <HideSidebarButton onClick={_toggleMinimizeButton} minimize={minimize} />
-    </SidebarWrapper>
+          <HideSidebarButton
+            onClick={_toggleMinimizeButton}
+            minimize={minimize}
+          />
+        </SidebarWrapper>
+      )}
+    </Transition>
   );
 }
 
