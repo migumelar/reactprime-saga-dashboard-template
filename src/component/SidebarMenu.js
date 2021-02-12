@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Ripple } from "primereact/ripple";
 import ButtonWihtOutlineBase from "./ButtonWithOutlineBase";
-
+import theme from "../styles/theme";
 const SidebarMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,15 +14,20 @@ const SidebarMenuWrapper = styled.div`
 `;
 
 const MenuItem = styled.div`
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* align-items: center; */
+  /* align-content:center; */
+
   justify-content: space-between;
   border-radius: 5px;
   width: 100%;
 `;
 
 const MenuItemContent = styled(ButtonWihtOutlineBase)`
+  /* border: 1px solid yellow; */
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -50,12 +55,13 @@ const MenuItemTrailingIcon = styled.i`
 `;
 
 const SubMenuWrapper = styled.div`
+  /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
-  align-self: stretch;
   margin-top: 0.25rem;
-  margin-left: 2.5rem;
-  margin-right: 0.5rem;
+  align-self: ${(props) => (props.minimize ? "unset" : "stretch")};
+  margin-left: ${(props) => (props.minimize ? "unset" : "2.5rem")};
+  margin-right: ${(props) => (props.minimize ? "unset" : "0.5rem")};
 
   & > * {
     margin-bottom: 0.2rem;
@@ -67,6 +73,7 @@ const SubMenuWrapper = styled.div`
 `;
 
 const SubMenuItem = styled(ButtonWihtOutlineBase)`
+  background-color: ${(props) => (props.minimize ? theme.surfaceC : "unset")};
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -101,21 +108,19 @@ const Menu = ({ minimize }) => {
         {minimize || <MenuItemTrailingIcon className="pi pi-chevron-down" />}
       </MenuItemContent>
 
-      {minimize || (
-        <SubMenuWrapper>
-          <SubMenuItem className=" p-ripple p-reset">
-            <Ripple />
-            <SubMenuItemLeadingIcon className="pi pi-plus" />
-            <SubMenuItemLabel>Create</SubMenuItemLabel>
-          </SubMenuItem>
+      <SubMenuWrapper minimize={minimize}>
+        <SubMenuItem minimize={minimize} className=" p-ripple p-reset">
+          <Ripple />
+          <SubMenuItemLeadingIcon className="pi pi-plus" />
+          {minimize || <SubMenuItemLabel>Create</SubMenuItemLabel>}
+        </SubMenuItem>
 
-          <SubMenuItem className="p-ripple p-reset">
-            <Ripple />
-            <SubMenuItemLeadingIcon className="pi pi-plus" />
-            <SubMenuItemLabel>Create</SubMenuItemLabel>
-          </SubMenuItem>
-        </SubMenuWrapper>
-      )}
+        <SubMenuItem  minimize={minimize} className="p-ripple p-reset">
+          <Ripple />
+          <SubMenuItemLeadingIcon className="pi pi-plus" />
+          {minimize || <SubMenuItemLabel>Create</SubMenuItemLabel>}
+        </SubMenuItem>
+      </SubMenuWrapper>
     </MenuItem>
   );
 };
