@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SidebarLogo = styled.div`
+const SidebarLogoWrapper = styled.div`
   font-weight: bold;
   padding: 1rem;
 
@@ -9,5 +9,13 @@ const SidebarLogo = styled.div`
     width: 100%;
   }
 `;
+
+function SidebarLogo({ src }) {
+  return (
+    <SidebarLogoWrapper>
+      <img src={src} alt="logo" />
+    </SidebarLogoWrapper>
+  );
+}
 
 export default SidebarLogo;

@@ -53,10 +53,9 @@ const HideSidebarButton = () => {
 
 function Sidebar() {
   return (
-    <SidebarWrapper>
-      <SidebarLogo>
-        <img src="/logo.png" alt="logo" />
-      </SidebarLogo>
+    <SidebarWrapper className="p-shadow-12">
+      
+      <SidebarLogo  src="/logo.png" />
 
       <SidebarMenu />
 
