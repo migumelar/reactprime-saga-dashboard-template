@@ -16,16 +16,19 @@ const SidebarWrapper = styled.div`
 
 const HideSidebarButtonWrapper = styled.button`
   && {
-    flex-shrink: 0;
     border-top: 1px solid ${theme.surfaceD};
     display: flex;
-    padding: ${(props) => (props.minimize ? ".5rem" : "0.5rem 1rem")};
+    padding: ${(props) => (props.minimize ? ".5rem" : "1rem")};
     align-items: center;
     /* justify-items: center; */
     justify-content: ${(props) => (props.minimize ? "center" : "flex-start")};
     font-family: ${theme.fontFamily};
     color: ${theme.textColor};
     cursor: pointer;
+
+    & > div {
+      font-size: 1.125rem;
+    }
 
     &:hover {
       outline: 0 none;
@@ -45,9 +48,10 @@ const HideSidebarButtonWrapper = styled.button`
   }
 `;
 
-const HideSidebarButton = ({ minimize }) => {
+const HideSidebarButton = ({ minimize, onClick }) => {
   return (
     <HideSidebarButtonWrapper
+      onClick={onClick}
       minimize={minimize}
       className="p-reset p-ripple p-component"
     >
@@ -59,7 +63,9 @@ const HideSidebarButton = ({ minimize }) => {
 };
 
 function Sidebar() {
-  const [minimize, setMinimize] = useState(true);
+  const [minimize, setMinimize] = useState(false);
+
+  const _toggleMinimizeButton = () => setMinimize(!minimize);
 
   return (
     <SidebarWrapper minimize={minimize} className="p-shadow-12">
@@ -67,7 +73,7 @@ function Sidebar() {
 
       <SidebarMenu minimize={minimize} />
 
-      <HideSidebarButton minimize={minimize} />
+      <HideSidebarButton onClick={_toggleMinimizeButton} minimize={minimize} />
     </SidebarWrapper>
   );
 }

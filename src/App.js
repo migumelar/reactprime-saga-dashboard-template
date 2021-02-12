@@ -10,6 +10,9 @@ import theme from "./styles/theme";
 import Sidebar from "./component/Sidebar";
 
 const GlobalStyle = createGlobalStyle`
+  *{
+    font-size: 14px;
+  }
 
   body {
     padding: 0;
@@ -38,7 +41,7 @@ function App() {
         <Sidebar />
 
         <div>
-          <Button>asdada</Button>
+          <Button tooltip="Click to proceed" >Save</Button>
         </div>
       </AppWrapper>
     </ThemeProvider>
