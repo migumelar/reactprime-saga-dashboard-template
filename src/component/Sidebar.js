@@ -49,20 +49,14 @@ const HideSidebarButtonWrapper = styled.button`
   }
 `;
 
-const sidebarTransitionDuration = 300;
-
-const sidebarDefaultStyle = {
-  transition: `width ${sidebarTransitionDuration}ms ease-in-out`,
-  width: '225px',
-}
+const sidebarTransitionDuration = 50;
 
 const sidebarTransitionStyles = {
-  entering: { width: "60px" },
-  entered: { width: "60px" },
-  exiting: { width: "225px" },
-  exited: { width: "225px" },
+  entering: { transform: "translateX(-10%)" },
+  entered: { transform: "translateX(0)" },
+  exiting: { transform: "translateX(-1%)" },
+  exited: { transform: "translateX(0)" },
 };
-
 
 const HideSidebarButton = ({ minimize, onClick }) => {
   return (
@@ -78,18 +72,28 @@ const HideSidebarButton = ({ minimize, onClick }) => {
   );
 };
 
-function Sidebar() {
+function Sidebar(props) {
+  const { animateType = "transform" } = props;
   const [minimize, setMinimize] = useState(false);
   const nodeRef = useRef(null);
   const _toggleMinimizeButton = () => setMinimize(!minimize);
 
+  const sidebarDefaultStyle = {
+    transition: `${animateType} ${sidebarTransitionDuration}ms ease-in-out`,
+    transform: "translateX(0)",
+  };
+
   return (
-    <Transition in={minimize} timeout={sidebarTransitionDuration} nodeRef={nodeRef}>
+    <Transition
+      in={minimize}
+      timeout={sidebarTransitionDuration}
+      nodeRef={nodeRef}
+    >
       {(state) => (
         <SidebarWrapper
           ref={nodeRef}
-          style={{...sidebarDefaultStyle, ...sidebarTransitionStyles[state]}}
-          minimize={!minimize}
+          style={{ ...sidebarDefaultStyle, ...sidebarTransitionStyles[state] }}
+          minimize={minimize}
           className="p-shadow-12"
         >
           <SidebarLogo minimize={minimize} src="/logo.png" />
