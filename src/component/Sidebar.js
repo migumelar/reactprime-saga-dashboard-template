@@ -3,11 +3,12 @@ import styled from "styled-components";
 import theme from "../styles/theme";
 import SidebarLogo from "./SidebarLogo";
 import SidebarMenu from "./SidebarMenu";
+import { useState } from "react";
 
 const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 225px;
+  width: ${(props) => (props.minimize ? "60px" : "225px")};
   height: 100%;
   background-color: ${theme.surfaceB};
   overflow-y: hidden;
@@ -15,10 +16,13 @@ const SidebarWrapper = styled.div`
 
 const HideSidebarButtonWrapper = styled.button`
   && {
+    flex-shrink: 0;
     border-top: 1px solid ${theme.surfaceD};
     display: flex;
-    padding: 0.5rem 1rem;
+    padding: ${(props) => (props.minimize ? ".5rem" : "0.5rem 1rem")};
     align-items: center;
+    /* justify-items: center; */
+    justify-content: ${(props) => (props.minimize ? "center" : "flex-start")};
     font-family: ${theme.fontFamily};
     color: ${theme.textColor};
     cursor: pointer;
@@ -35,31 +39,35 @@ const HideSidebarButtonWrapper = styled.button`
     }
 
     & > i {
-      font-size: 1.5rem;
-      margin-right: 1rem;
+      font-size: ${(props) => (props.minimize ? "1.25rem" : "1.5rem")};
+      margin-right: ${(props) => (props.minimize ? "0" : "1rem")};
     }
   }
 `;
 
-const HideSidebarButton = () => {
+const HideSidebarButton = ({ minimize }) => {
   return (
-    <HideSidebarButtonWrapper className="p-reset p-ripple p-component">
+    <HideSidebarButtonWrapper
+      minimize={minimize}
+      className="p-reset p-ripple p-component"
+    >
       <Ripple />
       <i className="pi pi-angle-double-left" />
-      <div>Hide sidebar</div>
+      {minimize || <div>Minimize sidebar</div>}
     </HideSidebarButtonWrapper>
   );
 };
 
 function Sidebar() {
+  const [minimize, setMinimize] = useState(true);
+
   return (
-    <SidebarWrapper className="p-shadow-12">
-      
-      <SidebarLogo  src="/logo.png" />
+    <SidebarWrapper minimize={minimize} className="p-shadow-12">
+      <SidebarLogo minimize={minimize} src="/logo.png" />
 
-      <SidebarMenu />
+      <SidebarMenu minimize={minimize} />
 
-      <HideSidebarButton />
+      <HideSidebarButton minimize={minimize} />
     </SidebarWrapper>
   );
 }

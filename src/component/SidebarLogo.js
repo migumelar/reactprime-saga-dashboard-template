@@ -10,8 +10,8 @@ const SidebarLogoWrapper = styled.div`
   }
 `;
 
-function SidebarLogo({ src }) {
-  return (
+function SidebarLogo({ src, minimize }) {
+  return minimize ? null : (
     <SidebarLogoWrapper>
       <img src={src} alt="logo" />
     </SidebarLogoWrapper>

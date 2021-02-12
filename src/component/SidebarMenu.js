@@ -5,10 +5,7 @@ import ButtonWihtOutlineBase from "./ButtonWithOutlineBase";
 const SidebarMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 1rem;
-  padding-right: 0.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: ${(props) => (props.minimize ? ".5rem" : "1rem 0.5rem 1rem 1rem")};
   flex-grow: 1;
   overflow-y: auto;
   & > :not(:last-child) {
@@ -22,17 +19,19 @@ const MenuItem = styled.div`
   align-items: center;
   justify-content: space-between;
   border-radius: 5px;
+  width: 100%;
 `;
 
 const MenuItemContent = styled(ButtonWihtOutlineBase)`
   display: flex;
+  justify-content: center;
   flex-direction: row;
   width: 100%;
   padding: 8px;
   border-radius: 5px;
 `;
 
-const MenuItemLeadingIcon = styled.i`
+const MenuItemLeadingIcon = styled.div`
   font-size: 1.25rem;
 `;
 
@@ -89,7 +88,7 @@ const SubMenuItemLeadingIcon = styled.div`
   align-items: center;
 `;
 
-const Menu = () => {
+const Menu = ({ minimize }) => {
   return (
     <MenuItem>
       <MenuItemContent className="p-ripple p-reset">
@@ -98,32 +97,46 @@ const Menu = () => {
         <MenuItemLeadingIcon>
           <i className="pi pi-home" />
         </MenuItemLeadingIcon>
-        <MenuItemLabel>Dashboard</MenuItemLabel>
-        <MenuItemTrailingIcon className="pi pi-chevron-down" />
+        {minimize || <MenuItemLabel>Dashboard</MenuItemLabel>}
+        {minimize || <MenuItemTrailingIcon className="pi pi-chevron-down" />}
       </MenuItemContent>
 
-      <SubMenuWrapper>
-        <SubMenuItem className=" p-ripple p-reset">
-          <Ripple />
-          <SubMenuItemLeadingIcon className="pi pi-plus" />
-          <SubMenuItemLabel>Create</SubMenuItemLabel>
-        </SubMenuItem>
+      {minimize || (
+        <SubMenuWrapper>
+          <SubMenuItem className=" p-ripple p-reset">
+            <Ripple />
+            <SubMenuItemLeadingIcon className="pi pi-plus" />
+            <SubMenuItemLabel>Create</SubMenuItemLabel>
+          </SubMenuItem>
 
-        <SubMenuItem className="p-ripple p-reset">
-          <Ripple />
-          <SubMenuItemLeadingIcon className="pi pi-plus" />
-          <SubMenuItemLabel>Create</SubMenuItemLabel>
-        </SubMenuItem>
-      </SubMenuWrapper>
+          <SubMenuItem className="p-ripple p-reset">
+            <Ripple />
+            <SubMenuItemLeadingIcon className="pi pi-plus" />
+            <SubMenuItemLabel>Create</SubMenuItemLabel>
+          </SubMenuItem>
+        </SubMenuWrapper>
+      )}
     </MenuItem>
   );
 };
 
-function SidebarMenu() {
+function SidebarMenu({ minimize }) {
   return (
-    <SidebarMenuWrapper>
-      <Menu />
-      <Menu />
+    <SidebarMenuWrapper minimize={minimize}>
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      {/* <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} />
+      <Menu minimize={minimize} /> */}
     </SidebarMenuWrapper>
   );
 }
