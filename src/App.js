@@ -8,6 +8,7 @@ import "primeflex/primeflex.css";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import theme from "./styles/theme";
 import Sidebar from "./component/Sidebar";
+import Tooltip from "./component/Tooltip";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -35,13 +36,35 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <Normalize /> */}
       <GlobalStyle />
-      <AppWrapper>
+
+      {/* 
+        I do this because global tooltip options seems like doens't work 
+        github issue: https://github.com/primefaces/primereact/issues/1811
+      */}
+
+      {/* hover tooltip */}
+      <Tooltip target=".rightTooltipHover" position="right" event="hover" />
+      <Tooltip target=".leftTooltipHover" position="left" event="hover" />
+      <Tooltip target=".topTooltipHover" position="top" event="hover" />
+      <Tooltip target=".bottomTooltipHover" position="bottom" event="hover" />
+
+      {/* focus tooltip */}
+      <Tooltip target=".rightTooltipHover" position="right" event="focus" />
+      <Tooltip target=".leftTooltipHover" position="left" event="focus" />
+      <Tooltip target=".topTooltipHover" position="top" event="focus" />
+      <Tooltip target=".bottomTooltipHover" position="bottom" event="focus" />
+
+       <AppWrapper>
         <Sidebar />
 
         <div>
-          <Button tooltip="Click to proceed" >Save</Button>
+          <Button
+            tooltip="Click to proceed"
+            tooltipOptions={{ event: "focus" }}
+          >
+            Save
+          </Button>
         </div>
       </AppWrapper>
     </ThemeProvider>

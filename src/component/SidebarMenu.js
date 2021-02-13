@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { Ripple } from "primereact/ripple";
 import ButtonWihtOutlineBase from "./ButtonWithOutlineBase";
 import theme from "../styles/theme";
+import Tooltip from "./Tooltip";
+
 const SidebarMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -98,7 +100,10 @@ const SubMenuItemLeadingIcon = styled.div`
 const Menu = ({ minimize }) => {
   return (
     <MenuItem>
-      <MenuItemContent className="p-ripple p-reset">
+      <MenuItemContent
+        className="rightTooltipHover rightTooltipFocus sidebarMenuFocus p-ripple p-reset"
+        data-pr-tooltip={`${minimize ? "Dashboard" : ""}`}
+      >
         <Ripple />
 
         <MenuItemLeadingIcon>
@@ -109,13 +114,21 @@ const Menu = ({ minimize }) => {
       </MenuItemContent>
 
       <SubMenuWrapper minimize={minimize}>
-        <SubMenuItem minimize={minimize} className=" p-ripple p-reset">
+        <SubMenuItem
+          minimize={minimize}
+          className="rightTooltipHover rightTooltipFocus p-ripple p-reset"
+          data-pr-tooltip={`${minimize ? "Add new post" : ""}`}
+        >
           <Ripple />
           <SubMenuItemLeadingIcon className="pi pi-plus" />
           {minimize || <SubMenuItemLabel>Create</SubMenuItemLabel>}
         </SubMenuItem>
 
-        <SubMenuItem  minimize={minimize} className="p-ripple p-reset">
+        <SubMenuItem
+          minimize={minimize}
+          className="rightTooltipHover rightTooltipFocus p-ripple p-reset"
+          data-pr-tooltip={`${minimize ? "Edit new post" : ""}`}
+        >
           <Ripple />
           <SubMenuItemLeadingIcon className="pi pi-plus" />
           {minimize || <SubMenuItemLabel>Create</SubMenuItemLabel>}
