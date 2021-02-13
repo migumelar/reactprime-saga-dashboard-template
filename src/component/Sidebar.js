@@ -13,7 +13,7 @@ const SidebarWrapper = styled.div`
   flex-direction: column;
   width: ${(props) => (props.minimize ? "60px" : "225px")};
   height: 100%;
-  background-color: ${theme.surfaceB};
+  background-color: ${theme.surfaceA};
   overflow-y: hidden;
 `;
 
@@ -59,7 +59,7 @@ const HideSidebarButton = ({ minimize, onClick }) => {
       data-pr-tooltip={`${minimize ? "Expand sidebar" : ""}`}
     >
       <Ripple />
-      <i className="pi pi-angle-double-left" />
+      <i className={`pi ${ minimize ? "pi-angle-double-right" : "pi-angle-double-left"}`} />
       {minimize || <div>Minimize sidebar</div>}
     </HideSidebarButtonWrapper>
   );

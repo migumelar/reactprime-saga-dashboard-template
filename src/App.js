@@ -9,6 +9,7 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import theme from "./styles/theme";
 import Sidebar from "./component/Sidebar";
 import Tooltip from "./component/Tooltip";
+import SidebarDesktop from "./component/SidebarDesktop";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -55,9 +56,10 @@ function App() {
       <Tooltip target=".topTooltipHover" position="top" event="focus" />
       <Tooltip target=".bottomTooltipHover" position="bottom" event="focus" />
 
-       <AppWrapper>
-        <Sidebar />
+      <AppWrapper>
+        {/* <Sidebar /> */}
 
+        <SidebarDesktop />
         <div>
           <Button
             tooltip="Click to proceed"
