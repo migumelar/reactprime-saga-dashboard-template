@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import theme from "../../styles/theme";
 import { Avatar } from "primereact/avatar";
+import { Ripple } from "primereact/ripple";
 
 const AppBarWrapper = styled.div`
   width: 100%;
@@ -23,14 +24,14 @@ const ProfilMenu = styled.button`
 
   &:hover,
   &:focus {
-    background-color:${theme.surfaceB};
+    background-color: ${theme.surfaceB};
     border-radius: 5px;
     outline: ${theme.ringOutline};
   }
 
   & > :first-child {
     background-color: ${theme.colors.green[500]};
-    color:${theme.primaryColorText};
+    color: ${theme.primaryColorText};
   }
 
   & > div {
@@ -44,10 +45,29 @@ const ProfilMenu = styled.button`
   }
 `;
 
+const ToggleMobileSidebarButton = styled.button`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
+  @media ${theme.breakpoint.lg} {
+    display: none;
+  }
+
+  & > i {
+    font-size: 1.2rem;
+  }
+`;
+
 function AppBar() {
   return (
     <AppBarWrapper className="p-shadow-2">
-      <div>left</div>
+      <div>
+        <ToggleMobileSidebarButton className="p-reset p-ripple">
+          <Ripple />
+          <i className="pi pi-bars" />
+        </ToggleMobileSidebarButton>
+      </div>
 
       <div>
         <ProfilMenu className="p-reset">

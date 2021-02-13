@@ -3,8 +3,9 @@ import theme from "../../styles/theme";
 import Sidebar from "./SidebarContent";
 
 const SidebarDesktopWrapper = styled.div`
+  display: none;
   @media ${theme.breakpoint.lg} {
-    display: none;
+    display: block;
   }
 `;
 
