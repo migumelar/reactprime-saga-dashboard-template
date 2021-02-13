@@ -6,6 +6,7 @@ import SidebarMenu from "./SidebarMenu";
 import { useState } from "react";
 import { Transition } from "react-transition-group";
 import { useRef } from "react";
+import ButtonWihtOutlineBase from "./ButtonWithOutlineBase";
 
 const SidebarWrapper = styled.div`
   display: flex;
@@ -16,36 +17,27 @@ const SidebarWrapper = styled.div`
   overflow-y: hidden;
 `;
 
-const HideSidebarButtonWrapper = styled.button`
+const HideSidebarButtonWrapper = styled(ButtonWihtOutlineBase)`
   && {
     border-top: 1px solid ${theme.surfaceD};
     display: flex;
     padding: ${(props) => (props.minimize ? ".5rem" : "1rem")};
     align-items: center;
     justify-content: ${(props) => (props.minimize ? "center" : "flex-start")};
-    font-family: ${theme.fontFamily};
-    color: ${theme.textColor};
-    cursor: pointer;
-
+    
     & > div {
       font-size: 1.125rem;
-    }
-
-    &:hover {
-      outline: 0 none;
-      outline-offset: 0;
-      box-shadow: 0 0 0 0.2rem #a6d5fa;
-    }
-
-    &:hover {
-      background-color: ${theme.primaryColor};
-      color: ${theme.primaryColorText};
     }
 
     & > i {
       font-size: ${(props) => (props.minimize ? "1.25rem" : "1.5rem")};
       margin-right: ${(props) => (props.minimize ? "0" : "1rem")};
     }
+
+    &:focus {
+      ${theme.primaryActiveState()}
+    }
+   
   }
 `;
 
@@ -63,7 +55,8 @@ const HideSidebarButton = ({ minimize, onClick }) => {
     <HideSidebarButtonWrapper
       onClick={onClick}
       minimize={minimize}
-      className="p-reset p-ripple p-component"
+      className="rightTooltipHover rightTooltipFocus p-reset p-ripple p-component"
+      data-pr-tooltip={`${minimize ? "Expand sidebar" : ""}`}
     >
       <Ripple />
       <i className="pi pi-angle-double-left" />
@@ -76,7 +69,11 @@ function Sidebar(props) {
   const { animateType = "transform" } = props;
   const [minimize, setMinimize] = useState(false);
   const nodeRef = useRef(null);
-  const _toggleMinimizeButton = () => setMinimize(!minimize);
+  const _toggleMinimizeButton = (e) => {
+    setMinimize(!minimize);
+    e.target.blur();
+    console.log(e);
+  };
 
   const sidebarDefaultStyle = {
     transition: `${animateType} ${sidebarTransitionDuration}ms ease-in-out`,

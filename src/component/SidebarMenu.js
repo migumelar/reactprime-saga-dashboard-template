@@ -19,9 +19,6 @@ const MenuItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* align-items: center; */
-  /* align-content:center; */
-
   justify-content: space-between;
   border-radius: 5px;
   width: 100%;

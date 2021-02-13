@@ -3,14 +3,13 @@ import theme from "../styles/theme";
 import ringOutline from "../styles/ringOutline";
 
 const ButtonWihtOutlineBase = styled.button`
-  background-color: transparent;
+  background-color: ${theme.surfaceA};
   color: ${theme.textColor};
   font-family: ${theme.fontFamily};
+  cursor: pointer;
 
-  &:hover {
-    cursor: pointer;
-    background-color: ${theme.primaryColor};
-    color: ${theme.primaryColorText};
+  &:hover, &:active {
+    ${theme.primaryActiveState()}
   }
 
   &:focus,
