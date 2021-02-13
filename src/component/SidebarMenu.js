@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Ripple } from "primereact/ripple";
 import ButtonWihtOutlineBase from "./ButtonWithOutlineBase";
 import theme from "../styles/theme";
+import { useState } from "react";
 
 const SidebarMenuWrapper = styled.div`
   display: flex;
@@ -94,9 +95,14 @@ const SubMenuItemLeadingIcon = styled.div`
 `;
 
 const Menu = ({ minimize }) => {
+  const [showSubMenu, setShowSubMenu] = useState(false);
+
+  const handleSubMenuToggle = () => setShowSubMenu(!showSubMenu);
+
   return (
     <MenuItem>
       <MenuItemContent
+        onClick={handleSubMenuToggle}
         className="rightTooltipHover rightTooltipFocus sidebarMenuFocus p-ripple p-reset"
         data-pr-tooltip={`${minimize ? "Dashboard" : ""}`}
       >
@@ -105,31 +111,41 @@ const Menu = ({ minimize }) => {
         <MenuItemLeadingIcon>
           <i className="pi pi-home" />
         </MenuItemLeadingIcon>
+
         {minimize || <MenuItemLabel>Dashboard</MenuItemLabel>}
-        {minimize || <MenuItemTrailingIcon className="pi pi-chevron-down" />}
+
+        {minimize || (
+          <MenuItemTrailingIcon
+            className={`pi ${
+              showSubMenu ? "pi-chevron-up" : "pi-chevron-down"
+            }`}
+          />
+        )}
       </MenuItemContent>
 
-      <SubMenuWrapper minimize={minimize}>
-        <SubMenuItem
-          minimize={minimize}
-          className="rightTooltipHover rightTooltipFocus p-ripple p-reset"
-          data-pr-tooltip={`${minimize ? "Add new post" : ""}`}
-        >
-          <Ripple />
-          <SubMenuItemLeadingIcon className="pi pi-plus" />
-          {minimize || <SubMenuItemLabel>Create</SubMenuItemLabel>}
-        </SubMenuItem>
+      {showSubMenu && (
+        <SubMenuWrapper minimize={minimize}>
+          <SubMenuItem
+            minimize={minimize}
+            className="rightTooltipHover rightTooltipFocus p-ripple p-reset"
+            data-pr-tooltip={`${minimize ? "Add new post" : ""}`}
+          >
+            <Ripple />
+            <SubMenuItemLeadingIcon className="pi pi-plus" />
+            {minimize || <SubMenuItemLabel>Create</SubMenuItemLabel>}
+          </SubMenuItem>
 
-        <SubMenuItem
-          minimize={minimize}
-          className="rightTooltipHover rightTooltipFocus p-ripple p-reset"
-          data-pr-tooltip={`${minimize ? "Edit new post" : ""}`}
-        >
-          <Ripple />
-          <SubMenuItemLeadingIcon className="pi pi-plus" />
-          {minimize || <SubMenuItemLabel>Create</SubMenuItemLabel>}
-        </SubMenuItem>
-      </SubMenuWrapper>
+          <SubMenuItem
+            minimize={minimize}
+            className="rightTooltipHover rightTooltipFocus p-ripple p-reset"
+            data-pr-tooltip={`${minimize ? "Edit new post" : ""}`}
+          >
+            <Ripple />
+            <SubMenuItemLeadingIcon className="pi pi-plus" />
+            {minimize || <SubMenuItemLabel>Create</SubMenuItemLabel>}
+          </SubMenuItem>
+        </SubMenuWrapper>
+      )}
     </MenuItem>
   );
 };

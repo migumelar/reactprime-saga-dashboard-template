@@ -72,7 +72,6 @@ function Sidebar(props) {
   const _toggleMinimizeButton = (e) => {
     setMinimize(!minimize);
     e.target.blur();
-    console.log(e);
   };
 
   const sidebarDefaultStyle = {
