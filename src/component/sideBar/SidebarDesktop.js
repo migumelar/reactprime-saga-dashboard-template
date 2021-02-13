@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import theme from "../styles/theme";
-import Sidebar from "./Sidebar";
+import theme from "../../styles/theme";
+import Sidebar from "./SidebarContent";
 
 const SidebarDesktopWrapper = styled.div`
   @media ${theme.breakpoint.lg} {

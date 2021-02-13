@@ -1,14 +1,14 @@
 import { Ripple } from "primereact/ripple";
 import styled from "styled-components";
-import theme from "../styles/theme";
+import theme from "../../styles/theme";
 import SidebarLogo from "./SidebarLogo";
 import SidebarMenu from "./SidebarMenu";
 import { useState } from "react";
 import { Transition } from "react-transition-group";
 import { useRef } from "react";
-import ButtonWihtOutlineBase from "./ButtonWithOutlineBase";
+import ButtonWihtOutlineBase from "../ButtonWithOutlineBase";
 
-const SidebarWrapper = styled.div`
+const SidebarContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: ${(props) => (props.minimize ? "60px" : "225px")};
@@ -65,7 +65,7 @@ const HideSidebarButton = ({ minimize, onClick }) => {
   );
 };
 
-function Sidebar(props) {
+function SidebarContent(props) {
   const { animateType = "transform" } = props;
   const [minimize, setMinimize] = useState(false);
   const nodeRef = useRef(null);
@@ -86,7 +86,7 @@ function Sidebar(props) {
       nodeRef={nodeRef}
     >
       {(state) => (
-        <SidebarWrapper
+        <SidebarContentWrapper
           ref={nodeRef}
           style={{ ...sidebarDefaultStyle, ...sidebarTransitionStyles[state] }}
           minimize={minimize}
@@ -100,10 +100,10 @@ function Sidebar(props) {
             onClick={_toggleMinimizeButton}
             minimize={minimize}
           />
-        </SidebarWrapper>
+        </SidebarContentWrapper>
       )}
     </Transition>
   );
 }
 
-export default Sidebar;
+export default SidebarContent;

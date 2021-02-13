@@ -7,9 +7,8 @@ import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import theme from "./styles/theme";
-import Sidebar from "./component/Sidebar";
-import Tooltip from "./component/Tooltip";
-import SidebarDesktop from "./component/SidebarDesktop";
+// import Sidebar from "./component/sidebar/Sidebar";
+import { Tooltip, SidebarDesktop, AppBar } from "./component";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -60,13 +59,20 @@ function App() {
         {/* <Sidebar /> */}
 
         <SidebarDesktop />
-        <div>
-          <Button
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <AppBar />
+          {/* <Button
             tooltip="Click to proceed"
             tooltipOptions={{ event: "focus" }}
           >
             Save
-          </Button>
+          </Button> */}
         </div>
       </AppWrapper>
     </ThemeProvider>

@@ -21,12 +21,17 @@ const theme = {
     `;
   },
   breakpoint: {
-    "sm": "(max-width: 640px)",
-    "md": "(max-width: 768px)",
-    "lg": "(max-width: 1024px)",
-    "xl": "(max-width: 1280px)",
+    sm: "(max-width: 640px)",
+    md: "(max-width: 768px)",
+    lg: "(max-width: 1024px)",
+    xl: "(max-width: 1280px)",
     "2xl": "(max-width: 1536px)",
   },
+  ringOutline: `
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #a6d5fa;
+`,
 };
 
 export default theme;
