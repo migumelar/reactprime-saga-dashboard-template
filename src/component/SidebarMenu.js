@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Ripple } from "primereact/ripple";
 import ButtonWihtOutlineBase from "./ButtonWithOutlineBase";
 import theme from "../styles/theme";
-import Tooltip from "./Tooltip";
 
 const SidebarMenuWrapper = styled.div`
   display: flex;
