@@ -8,7 +8,7 @@ import "primeflex/primeflex.css";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import theme from "./styles/theme";
 // import Sidebar from "./component/sidebar/Sidebar";
-import { Tooltip, SidebarDesktop, AppBar } from "./component";
+import { Tooltip, SidebarDesktop, AppBar, SidebarMobile } from "./component";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -54,10 +54,10 @@ function App() {
       <Tooltip target=".leftTooltipHover" position="left" event="focus" />
       <Tooltip target=".topTooltipHover" position="top" event="focus" />
       <Tooltip target=".bottomTooltipHover" position="bottom" event="focus" />
-
+      {/* <SidebarMobile /> */}
       <AppWrapper>
-        {/* <Sidebar /> */}
 
+        <SidebarMobile />
         <SidebarDesktop />
         <div
           style={{
@@ -67,12 +67,12 @@ function App() {
           }}
         >
           <AppBar />
-          {/* <Button
+          <Button
             tooltip="Click to proceed"
             tooltipOptions={{ event: "focus" }}
           >
             Save
-          </Button> */}
+          </Button>
         </div>
       </AppWrapper>
     </ThemeProvider>
