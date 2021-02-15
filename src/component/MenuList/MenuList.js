@@ -1,21 +1,33 @@
+import styled from "styled-components";
 import Menu from "../Menu";
-import MenuLabel from "../MenuLabel/MenuLabel";
-import SubMenuList from "../SubMenuList";
+import MenuLabel from "../MenuLabel";
+import SubMenuList from "../SubMenuList/SubMenuList";
 import SubMenu from "../SubMenu";
+
+
+const Wrapper = styled.ul`
+  display: flex;
+  flex-direction: column;
+  padding: ${(props) => (props.minimize ? ".5rem" : "1rem 0.5rem 1rem 1rem")};
+  flex-grow: 1;
+  overflow-y: auto;
+  & > :not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
+`;
+
 
 const MenuList = () => {
   return (
-    <ul className="p-reset">
+    <Wrapper className="p-reset">
       <Menu>
-
         <MenuLabel leadingIcon="i" menuText="Dashboard" />
 
         <SubMenuList>
           <SubMenu leadingIcon="o" subMenuText="Some submenu text" />
         </SubMenuList>
-
       </Menu>
-    </ul>
+    </Wrapper>
   );
 };
 

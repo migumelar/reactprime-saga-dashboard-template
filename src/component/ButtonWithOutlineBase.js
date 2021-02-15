@@ -2,7 +2,7 @@ import styled from "styled-components";
 import theme from "../styles/theme";
 import ringOutline from "../styles/ringOutline";
 
-const ButtonBase = styled.button`
+const Wrapper = styled.button`
   background-color: ${theme.surfaceA};
   color: ${theme.textColor};
   font-family: ${theme.fontFamily};
@@ -20,7 +20,7 @@ const ButtonBase = styled.button`
 `;
 
 const ButtonWihtOutlineBase = ({ className, children }) => (
-  <ButtonBase className={`p-reset ${className}`}>{children}</ButtonBase>
+  <Wrapper className={`p-reset ${className}`}>{children}</Wrapper>
 );
 
 export default ButtonWihtOutlineBase;

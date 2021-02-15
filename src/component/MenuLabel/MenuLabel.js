@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { Ripple } from "primereact/ripple";
 import ButtonWihtOutlineBase from "../ButtonWithOutlineBase";
-import TrailingIcon from "./component/TrailingIcon/TrailingIcon";
-import LeadingIcon from "./component/LeadingIcon/LeadingIcon";
-import MenuText from "./component/MenuText/MenuText";
+import TrailingIcon from "./component/TrailingIcon";
+import LeadingIcon from "./component/LeadingIcon";
+import MenuText from "./component/MenuText";
 
 const Wrapper = styled(ButtonWihtOutlineBase)`
   display: flex;
