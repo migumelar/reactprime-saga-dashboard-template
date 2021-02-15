@@ -57,7 +57,7 @@ function App() {
       {/* <SidebarMobile /> */}
       <AppWrapper>
 
-        <SidebarMobile />
+        {/* <SidebarMobile /> */}
         <SidebarDesktop />
         <div
           style={{
