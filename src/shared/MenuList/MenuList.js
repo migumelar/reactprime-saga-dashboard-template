@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import Menu from "./component/Menu";
-import MenuLabel from "./component/MenuLabel";
-import SubMenuList from "./component/SubMenuList";
-import SubMenu from "./component/SubMenu";
-
+// import MenuLabel from "./component/MenuLabel";
+// import SubMenuList from "./component/SubMenuList";
+// import SubMenu from "./component/asdada";
 
 const Wrapper = styled.ul`
   display: flex;
@@ -16,10 +15,26 @@ const Wrapper = styled.ul`
   }
 `;
 
-
 const MenuList = () => {
   return (
     <Wrapper className="p-reset">
+      <Menu />
+
+      <Menu />
+
+      <Menu />
+
+      {/* <Menu>
+        <MenuLabel leadingIcon="i" menuText="Dashboard" />
+
+        <SubMenuList>
+          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
+          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
+          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
+        </SubMenuList>
+
+      </Menu> */}
+      {/* 
       <Menu>
         <MenuLabel leadingIcon="i" menuText="Dashboard" />
 
@@ -33,13 +48,6 @@ const MenuList = () => {
 
       <Menu>
         <MenuLabel leadingIcon="i" menuText="Dashboard" />
-
-        <SubMenuList>
-          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
-          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
-          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
-        </SubMenuList>
-
       </Menu>
 
       <Menu>
@@ -48,12 +56,7 @@ const MenuList = () => {
 
       <Menu>
         <MenuLabel leadingIcon="i" menuText="Dashboard" />
-      </Menu>
-
-      <Menu>
-        <MenuLabel leadingIcon="i" menuText="Dashboard" />
-      </Menu>
-      
+      </Menu> */}
     </Wrapper>
   );
 };

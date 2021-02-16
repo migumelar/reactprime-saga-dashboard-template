@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import MenuLabel from './component/MenuLabel';
+import SubMenuList from './component/SubMenuList';
 
-const Wrapper =  styled.li`
+const Wrapper = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +12,15 @@ const Wrapper =  styled.li`
 `;
 
 const Menu = ({ className, children }) => {
-  return <Wrapper className={className}>{children}</Wrapper>;
+  return (
+    <Wrapper className={className}>
+
+      <MenuLabel leadingIcon="i" menuText="Dashboard" />
+
+      <SubMenuList/>
+
+    </Wrapper>
+  );
 };
 
 export default Menu;
