@@ -20,6 +20,7 @@ const Menu = ({ className }) => {
   return (
     <Wrapper className={className}>
       <MenuLabel
+        showSubMenu={showSubMenu}
         onClick={onClickHandle}
         leadingIcon="pi-wallet"
         menuText="Dashboard"

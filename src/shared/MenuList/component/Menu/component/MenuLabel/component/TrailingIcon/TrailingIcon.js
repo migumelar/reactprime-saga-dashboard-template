@@ -7,9 +7,9 @@ const Wrapper = styled.div`
   line-height: 1;
 `;
 
-const TrailingIcon = () => (
+const TrailingIcon = ({trailingIcon}) => (
   <Wrapper>
-    <i className="pi pi-chevron-down" />
+    <i className={`pi ${trailingIcon}`} />
   </Wrapper>
 );
 

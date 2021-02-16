@@ -14,10 +14,7 @@ const Wrapper = styled(ButtonWithOutlineBase)`
   border-radius: 5px;
 `;
 
-const MenuLabel = (props) => {
-
-  const { onClick, leadingIcon, menuText } = props
-  
+const MenuLabel = ({ onClick, leadingIcon, menuText, showSubMenu }) => {
   return (
     <Wrapper onClick={onClick}>
       <Ripple />
@@ -26,7 +23,9 @@ const MenuLabel = (props) => {
 
       <MenuText menuText={menuText} />
 
-      <TrailingIcon />
+      <TrailingIcon
+        trailingIcon={showSubMenu ? "pi-chevron-up" : "pi-chevron-down"}
+      />
     </Wrapper>
   );
 };
