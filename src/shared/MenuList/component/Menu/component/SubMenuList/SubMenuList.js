@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SubMenu from './component/SubMenu';
+import SubMenu from "./component/SubMenu";
 
 const Wrapper = styled.ul`
   /* border: 1px solid blue; */
@@ -19,10 +19,14 @@ const Wrapper = styled.ul`
   }
 `;
 
-const SubMenuList = () => {
+const SubMenuList = ({ minimize }) => {
   return (
-    <Wrapper className="p-reset">
-      <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
+    <Wrapper className="p-reset" minimize={minimize}>
+      <SubMenu
+        leadingIcon="pi-wallet"
+        subMenuText="Some report"
+        minimize={minimize}
+      />
     </Wrapper>
   );
 };

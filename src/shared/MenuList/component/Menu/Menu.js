@@ -27,7 +27,7 @@ const Menu = ({ className, minimize }) => {
         menuText="Dashboard"
       />
 
-      {showSubMenu && <SubMenuList />}
+      {showSubMenu && <SubMenuList minimize={minimize} />}
     </Wrapper>
   );
 };

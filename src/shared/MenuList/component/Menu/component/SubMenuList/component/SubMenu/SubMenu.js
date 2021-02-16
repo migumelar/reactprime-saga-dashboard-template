@@ -5,8 +5,8 @@ import LeadingIcon from "./component/LeadingIcon";
 import MenuText from "./component/MenuText";
 
 const Wrapper = styled(ButtonWithOutlineBase)`
-  /* background-color: ${(props) =>
-    props.minimize ? props.theme.surfaceC : "unset"}; */
+  background-color: ${(props) =>
+    props.minimize ? props.theme.surfaceC : "unset"};
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -15,14 +15,14 @@ const Wrapper = styled(ButtonWithOutlineBase)`
   border-radius: 5px;
 `;
 
-const SubMenu = ({ leadingIcon, subMenuText }) => {
+const SubMenu = ({ leadingIcon, subMenuText, minimize }) => {
   return (
-    <Wrapper>
+    <Wrapper minimize={minimize}>
       <Ripple />
 
       <LeadingIcon leadingIcon={`pi ${leadingIcon}`} />
 
-      <MenuText subMenuText={subMenuText} />
+      {minimize || <MenuText subMenuText={subMenuText} />}
     </Wrapper>
   );
 };
