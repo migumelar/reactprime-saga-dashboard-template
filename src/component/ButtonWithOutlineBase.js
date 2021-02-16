@@ -20,7 +20,7 @@ const Wrapper = styled.button`
 `;
 
 const ButtonWihtOutlineBase = ({ className, children }) => (
-  <Wrapper className={`p-reset ${className}`}>{children}</Wrapper>
+  <Wrapper className={`p-reset p-ripple ${className}`}>{children}</Wrapper>
 );
 
 export default ButtonWihtOutlineBase;

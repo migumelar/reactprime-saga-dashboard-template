@@ -9,9 +9,21 @@ import MenuList from "../MenuList";
 //   }
 // `;
 
+const style = {
+  display: "flex",
+  flexDirection: "column",
+  // width: ${(props) => (props.minimize ? "60px" : "225px")},
+  width: "225px",
+  height: "100%",
+  backgroundColor: `${theme.surfaceA}`,
+  overflowY: "hidden",
+}
+
 function SidebarDesktop() {
   return (
-    <MenuList />
+    <div style={style}>
+      <MenuList />
+    </div>
     // <SidebarDesktopWrapper>
     //   <Sidebar />
     // </SidebarDesktopWrapper>

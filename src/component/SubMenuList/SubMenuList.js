@@ -18,10 +18,8 @@ const Wrapper = styled.ul`
   }
 `;
 
-
-
 const SubMenuList = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
+  return <Wrapper className="p-reset">{children}</Wrapper>;
 };
 
 export default SubMenuList;

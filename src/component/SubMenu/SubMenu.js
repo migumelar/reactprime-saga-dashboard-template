@@ -1,18 +1,30 @@
-import ButtonWithOutlineBase from "../ButtonWithOutlineBase";
+import styled from "styled-components";
 import { Ripple } from "primereact/ripple";
+import ButtonWithOutlineBase from "../ButtonWithOutlineBase";
+import LeadingIcon from "./component/LeadingIcon";
+import MenuText from "./component/MenuText";
 
-export const LeadingIcon = ({ leadingIcon }) => <div>{leadingIcon}</div>;
+const Wrapper = styled(ButtonWithOutlineBase)`
+  /* background-color: ${(props) =>
+    props.minimize ? props.theme.surfaceC : "unset"}; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  padding: 8px;
+  border-radius: 5px;
+`;
 
-export const MenuText = ({ subMenuText }) => <div>{subMenuText}</div>;
-
-export const SubMenu = ({ leadingIcon, subMenuText }) => {
+const SubMenu = ({ leadingIcon, subMenuText }) => {
   return (
-    <ButtonWithOutlineBase>
+    <Wrapper>
       <Ripple />
 
-      <LeadingIcon>{leadingIcon}</LeadingIcon>
+      <LeadingIcon leadingIcon={`pi ${leadingIcon}`} />
 
-      <MenuText>{subMenuText}</MenuText>
-    </ButtonWithOutlineBase>
+      <MenuText subMenuText={subMenuText} />
+    </Wrapper>
   );
 };
+
+export default SubMenu;

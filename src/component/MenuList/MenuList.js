@@ -24,9 +24,14 @@ const MenuList = () => {
         <MenuLabel leadingIcon="i" menuText="Dashboard" />
 
         <SubMenuList>
-          <SubMenu leadingIcon="o" subMenuText="Some submenu text" />
+          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
+          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
+          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
         </SubMenuList>
+
       </Menu>
+
+      
     </Wrapper>
   );
 };
