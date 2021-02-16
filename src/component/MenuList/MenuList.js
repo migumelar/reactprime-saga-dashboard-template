@@ -31,6 +31,28 @@ const MenuList = () => {
 
       </Menu>
 
+      <Menu>
+        <MenuLabel leadingIcon="i" menuText="Dashboard" />
+
+        <SubMenuList>
+          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
+          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
+          <SubMenu leadingIcon="pi-wallet" subMenuText="Some report" />
+        </SubMenuList>
+
+      </Menu>
+
+      <Menu>
+        <MenuLabel leadingIcon="i" menuText="Dashboard" />
+      </Menu>
+
+      <Menu>
+        <MenuLabel leadingIcon="i" menuText="Dashboard" />
+      </Menu>
+
+      <Menu>
+        <MenuLabel leadingIcon="i" menuText="Dashboard" />
+      </Menu>
       
     </Wrapper>
   );
