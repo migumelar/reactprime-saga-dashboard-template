@@ -12,7 +12,7 @@ const Wrapper = styled.li`
   width: 100%;
 `;
 
-const Menu = ({ className }) => {
+const Menu = ({ className, minimize }) => {
   const [showSubMenu, setShowSubMenu] = useState(false);
 
   const onClickHandle = () => setShowSubMenu(!showSubMenu);
@@ -20,6 +20,7 @@ const Menu = ({ className }) => {
   return (
     <Wrapper className={className}>
       <MenuLabel
+        minimize={minimize}
         showSubMenu={showSubMenu}
         onClick={onClickHandle}
         leadingIcon="pi-wallet"

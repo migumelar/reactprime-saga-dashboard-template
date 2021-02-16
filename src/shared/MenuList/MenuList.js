@@ -16,18 +16,19 @@ const Wrapper = styled.ul`
   }
 `;
 
-const MenuList = () => {
+const MenuList = ({minimize}) => {
   return (
     <Wrapper className="p-reset">
-      <Menu />
+      
+      <Menu minimize={minimize} />
 
-      <Menu />
+      <Menu minimize={minimize} />
 
-      <Menu />
+      <Menu minimize={minimize} />
 
-      <Menu />
+      <Menu minimize={minimize} />
 
-      <Menu />
+      <Menu minimize={minimize} />
 
 
 

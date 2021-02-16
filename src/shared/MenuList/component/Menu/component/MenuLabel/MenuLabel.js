@@ -14,18 +14,26 @@ const Wrapper = styled(ButtonWithOutlineBase)`
   border-radius: 5px;
 `;
 
-const MenuLabel = ({ onClick, leadingIcon, menuText, showSubMenu }) => {
+const MenuLabel = ({
+  onClick,
+  leadingIcon,
+  menuText,
+  showSubMenu,
+  minimize,
+}) => {
   return (
     <Wrapper onClick={onClick}>
       <Ripple />
 
       <LeadingIcon leadingIcon={`pi ${leadingIcon}`} />
 
-      <MenuText menuText={menuText} />
+      {minimize || <MenuText menuText={menuText} />}
 
-      <TrailingIcon
-        trailingIcon={showSubMenu ? "pi-chevron-up" : "pi-chevron-down"}
-      />
+      {minimize || (
+        <TrailingIcon
+          trailingIcon={showSubMenu ? "pi-chevron-up" : "pi-chevron-down"}
+        />
+      )}
     </Wrapper>
   );
 };

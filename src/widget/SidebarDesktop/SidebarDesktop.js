@@ -3,6 +3,7 @@ import theme from "../../styles/theme";
 import MenuList from "../../shared/MenuList";
 import AppLogo from "../../shared/AppLogo";
 import MinimizeSidebarButton from "./component/MinimizeSidebarButton";
+import { useState } from "react";
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,13 +20,19 @@ const StyledAppLogo = styled(AppLogo)`
 `;
 
 const SidebarDesktop = () => {
+  const [minimize, setMinimize] = useState(false);
+
+  const onClickHandle = () => setMinimize(!minimize);
+
   return (
-    <Wrapper className="p-shadow-12">
-      <StyledAppLogo src="/logo.png" />
+    <Wrapper minimize={minimize} className="p-shadow-12">
+      
+      {minimize || <StyledAppLogo src="/logo.png" />}
 
-      <MenuList />
+      <MenuList minimize={minimize} />
 
-      <MinimizeSidebarButton />
+      <MinimizeSidebarButton onClick={onClickHandle} minimize={minimize}/>
+
     </Wrapper>
   );
 };
