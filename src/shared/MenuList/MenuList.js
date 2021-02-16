@@ -7,7 +7,8 @@ import Menu from "./component/Menu";
 const Wrapper = styled.ul`
   display: flex;
   flex-direction: column;
-  padding: ${(props) => (props.minimize ? ".5rem" : "1rem 0.5rem 1rem 1rem")};
+  /* padding: ${(props) => (props.minimize ? ".5rem" : "1rem 0.5rem 1rem 1rem")}; */
+  padding: ${(props) => (props.minimize ? ".5rem" : "1rem")};
   flex-grow: 1;
   overflow-y: auto;
   & > :not(:last-child) {
@@ -23,6 +24,12 @@ const MenuList = () => {
       <Menu />
 
       <Menu />
+
+      <Menu />
+
+      <Menu />
+
+
 
       {/* <Menu>
         <MenuLabel leadingIcon="i" menuText="Dashboard" />
