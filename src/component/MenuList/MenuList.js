@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Menu from "../Menu";
-import MenuLabel from "../MenuLabel";
-import SubMenuList from "../SubMenuList/SubMenuList";
-import SubMenu from "../SubMenu";
+import Menu from "./component/Menu";
+import MenuLabel from "./component/MenuLabel";
+import SubMenuList from "./component/SubMenuList";
+import SubMenu from "./component/SubMenu";
 
 
 const Wrapper = styled.ul`

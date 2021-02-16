@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import theme from "../styles/theme";
-import ringOutline from "../styles/ringOutline";
+import theme from "../../styles/theme";
+import ringOutline from "../../styles/ringOutline";
 
 const Wrapper = styled.button`
   background-color: ${theme.surfaceA};

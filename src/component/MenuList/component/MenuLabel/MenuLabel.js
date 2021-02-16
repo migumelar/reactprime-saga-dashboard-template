@@ -1,30 +1,31 @@
 import styled from "styled-components";
 import { Ripple } from "primereact/ripple";
-import ButtonWithOutlineBase from "../ButtonWithOutlineBase";
+import ButtonWithOutlineBase from "../../../ButtonWithOutlineBase";
+import TrailingIcon from "./component/TrailingIcon";
 import LeadingIcon from "./component/LeadingIcon";
 import MenuText from "./component/MenuText";
 
 const Wrapper = styled(ButtonWithOutlineBase)`
-  /* background-color: ${(props) =>
-    props.minimize ? props.theme.surfaceC : "unset"}; */
-  width: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: row;
-  font-size: 1rem;
+  width: 100%;
   padding: 8px;
   border-radius: 5px;
 `;
 
-const SubMenu = ({ leadingIcon, subMenuText }) => {
+const MenuLabel = ({ leadingIcon, menuText }) => {
   return (
     <Wrapper>
       <Ripple />
 
-      <LeadingIcon leadingIcon={`pi ${leadingIcon}`} />
+      <LeadingIcon leadingIcon="pi-wallet" />
 
-      <MenuText subMenuText={subMenuText} />
+      <MenuText menuText={menuText} />
+
+      <TrailingIcon />
     </Wrapper>
   );
 };
 
-export default SubMenu;
+export default MenuLabel;
