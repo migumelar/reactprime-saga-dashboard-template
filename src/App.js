@@ -67,12 +67,12 @@ function App() {
           }}
         >
           <AppBar />
-          <Button
+          {/* <Button
             tooltip="Click to proceed"
             tooltipOptions={{ event: "focus" }}
           >
             Save
-          </Button>
+          </Button> */}
         </div>
       </AppWrapper>
     </ThemeProvider>

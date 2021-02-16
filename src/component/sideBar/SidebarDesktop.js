@@ -12,6 +12,7 @@ import MenuList from "../MenuList";
 const style = {
   display: "flex",
   flexDirection: "column",
+  flexShrink: 0,
   // width: ${(props) => (props.minimize ? "60px" : "225px")},
   width: "225px",
   height: "100%",
@@ -21,7 +22,7 @@ const style = {
 
 function SidebarDesktop() {
   return (
-    <div style={style}>
+    <div style={style} className="p-shadow-12">
       <MenuList />
     </div>
     // <SidebarDesktopWrapper>
