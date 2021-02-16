@@ -19,8 +19,8 @@ const Wrapper = styled.button`
   }
 `;
 
-const ButtonWihtOutlineBase = ({ className, children }) => (
-  <Wrapper className={`p-reset p-ripple ${className}`}>{children}</Wrapper>
+const ButtonWihtOutlineBase = ({ className, children, onClick }) => (
+  <Wrapper onClick={onClick} className={`p-reset p-ripple ${className}`}>{children}</Wrapper>
 );
 
 export default ButtonWihtOutlineBase;

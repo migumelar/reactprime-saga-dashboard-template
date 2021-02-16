@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import theme from "../../styles/theme";
+// import theme from "../../styles/theme";
 // import Sidebar from "./SidebarContent";
 import MenuList from "../MenuList";
 // const SidebarDesktopWrapper = styled.div`
@@ -16,7 +15,7 @@ const style = {
   // width: ${(props) => (props.minimize ? "60px" : "225px")},
   width: "225px",
   height: "100%",
-  backgroundColor: `${theme.surfaceA}`,
+  backgroundColor: `${(props) => props.theme.surfaceA}`,
   overflowY: "hidden",
 }
 

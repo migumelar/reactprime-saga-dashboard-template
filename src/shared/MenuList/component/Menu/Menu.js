@@ -1,6 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
-import MenuLabel from './component/MenuLabel';
-import SubMenuList from './component/SubMenuList';
+import MenuLabel from "./component/MenuLabel";
+import SubMenuList from "./component/SubMenuList";
 
 const Wrapper = styled.li`
   display: flex;
@@ -11,14 +12,20 @@ const Wrapper = styled.li`
   width: 100%;
 `;
 
-const Menu = ({ className, children }) => {
+const Menu = ({ className }) => {
+  const [showSubMenu, setShowSubMenu] = useState(false);
+
+  const onClickHandle = () => setShowSubMenu(!showSubMenu);
+
   return (
     <Wrapper className={className}>
+      <MenuLabel
+        onClick={onClickHandle}
+        leadingIcon="pi-wallet"
+        menuText="Dashboard"
+      />
 
-      <MenuLabel leadingIcon="i" menuText="Dashboard" />
-
-      <SubMenuList/>
-
+      {showSubMenu && <SubMenuList />}
     </Wrapper>
   );
 };

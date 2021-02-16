@@ -14,12 +14,15 @@ const Wrapper = styled(ButtonWithOutlineBase)`
   border-radius: 5px;
 `;
 
-const MenuLabel = ({ leadingIcon, menuText }) => {
+const MenuLabel = (props) => {
+
+  const { onClick, leadingIcon, menuText } = props
+  
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <Ripple />
 
-      <LeadingIcon leadingIcon="pi-wallet" />
+      <LeadingIcon leadingIcon={`pi ${leadingIcon}`} />
 
       <MenuText menuText={menuText} />
 
