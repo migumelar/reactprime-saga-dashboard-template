@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SubMenu from "./component/SubMenu";
 
-const Wrapper = styled.ul`
+const Wrapper = styled.div`
   /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
@@ -22,6 +22,12 @@ const Wrapper = styled.ul`
 const SubMenuList = ({ minimize }) => {
   return (
     <Wrapper className="p-reset" minimize={minimize}>
+      <SubMenu
+        leadingIcon="pi-wallet"
+        subMenuText="Some report"
+        minimize={minimize}
+      />
+
       <SubMenu
         leadingIcon="pi-wallet"
         subMenuText="Some report"

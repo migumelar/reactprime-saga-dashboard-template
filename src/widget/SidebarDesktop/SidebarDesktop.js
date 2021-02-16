@@ -20,7 +20,7 @@ const StyledAppLogo = styled(AppLogo)`
 `;
 
 const SidebarDesktop = () => {
-  const [minimize, setMinimize] = useState(false);
+  const [minimize, setMinimize] = useState(true);
 
   const onClickHandle = () => setMinimize(!minimize);
 

@@ -19,8 +19,19 @@ const Wrapper = styled.button`
   }
 `;
 
-const ButtonWihtOutlineBase = ({ className, children, onClick }) => (
-  <Wrapper onClick={onClick} className={`p-reset p-ripple ${className}`}>{children}</Wrapper>
+const ButtonWihtOutlineBase = ({
+  className,
+  children,
+  onClick,
+  "data-pr-tooltip": tooltipText,
+}) => (
+  <Wrapper
+    onClick={onClick}
+    className={`p-reset p-ripple ${className}`}
+    data-pr-tooltip={tooltipText}
+  >
+    {children}
+  </Wrapper>
 );
 
 export default ButtonWihtOutlineBase;

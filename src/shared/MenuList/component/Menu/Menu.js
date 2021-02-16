@@ -13,7 +13,7 @@ const Wrapper = styled.li`
 `;
 
 const Menu = ({ className, minimize }) => {
-  const [showSubMenu, setShowSubMenu] = useState(false);
+  const [showSubMenu, setShowSubMenu] = useState(true);
 
   const onClickHandle = () => setShowSubMenu(!showSubMenu);
 

@@ -22,7 +22,11 @@ const MenuLabel = ({
   minimize,
 }) => {
   return (
-    <Wrapper onClick={onClick}>
+    <Wrapper
+      onClick={onClick}
+      className="rightTooltipHover rightTooltipFocus"
+      data-pr-tooltip={minimize ? menuText : ""}
+    >
       <Ripple />
 
       <LeadingIcon leadingIcon={`pi ${leadingIcon}`} />

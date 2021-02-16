@@ -17,7 +17,11 @@ const Wrapper = styled(ButtonWithOutlineBase)`
 
 const SubMenu = ({ leadingIcon, subMenuText, minimize }) => {
   return (
-    <Wrapper minimize={minimize}>
+    <Wrapper
+      minimize={minimize}
+      className="rightTooltipHover rightTooltipFocus"
+      data-pr-tooltip={minimize ? subMenuText : ""}
+    >
       <Ripple />
 
       <LeadingIcon leadingIcon={`pi ${leadingIcon}`} />

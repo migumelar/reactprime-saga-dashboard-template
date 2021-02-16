@@ -51,10 +51,11 @@ function App() {
       <Tooltip target=".bottomTooltipHover" position="bottom" event="hover" />
 
       {/* focus tooltip */}
-      <Tooltip target=".rightTooltipHover" position="right" event="focus" />
-      <Tooltip target=".leftTooltipHover" position="left" event="focus" />
-      <Tooltip target=".topTooltipHover" position="top" event="focus" />
-      <Tooltip target=".bottomTooltipHover" position="bottom" event="focus" />
+      <Tooltip target=".rightTooltipFocus" position="right" event="focus" />
+      <Tooltip target=".leftTooltipfocus" position="left" event="focus" />
+      <Tooltip target=".topTooltipFocus" position="top" event="focus" />
+      <Tooltip target=".bottomTooltipFocus" position="bottom" event="focus" />
+
       {/* <SidebarMobile /> */}
       <AppWrapper>
         {/* <SidebarMobile /> */}
