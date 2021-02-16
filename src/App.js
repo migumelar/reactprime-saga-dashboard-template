@@ -8,7 +8,7 @@ import "primeflex/primeflex.css";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import theme from "./styles/theme";
 // import Sidebar from "./component/sidebar/Sidebar";
-import { Tooltip, AppBar, SidebarMobile } from "./component";
+import { Tooltip, AppBar, SidebarMobile } from "./shared";
 import SidebarDesktop from "./widget/SidebarDesktop";
 
 const GlobalStyle = createGlobalStyle`
