@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { useRef, useState } from "react";
+import { Transition } from "react-transition-group";
 import theme from "../../styles/theme";
 import MenuList from "../../shared/MenuList";
 import AppLogo from "../../shared/AppLogo";
 import MinimizeSidebarButton from "./component/MinimizeSidebarButton";
-import { useState } from "react";
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,21 +20,47 @@ const StyledAppLogo = styled(AppLogo)`
   padding: 1.5rem;
 `;
 
+const sidebarTransitionDuration = 50;
+
+const sidebarTransitionStyles = {
+  entering: { transform: "translateX(-10%)" },
+  entered: { transform: "translateX(0)" },
+  exiting: { transform: "translateX(-1%)" },
+  exited: { transform: "translateX(0)" },
+};
+
+const sidebarDefaultStyle = {
+  transition: `transform ${sidebarTransitionDuration}ms ease-in-out`,
+  transform: "translateX(0)",
+};
+
 const SidebarDesktop = () => {
   const [minimize, setMinimize] = useState(true);
+  const nodeRef = useRef(null);
 
   const onClickHandle = () => setMinimize(!minimize);
 
   return (
-    <Wrapper minimize={minimize} className="p-shadow-12">
-      
-      {minimize || <StyledAppLogo src="/logo.png" />}
+    <Transition
+      nodeRef={nodeRef}
+      in={minimize}
+      timeout={sidebarTransitionDuration}
+    >
+      {(state) => (
+        <Wrapper
+          ref={nodeRef}
+          minimize={minimize}
+          className="p-shadow-12"
+          style={{ ...sidebarDefaultStyle, ...sidebarTransitionStyles[state] }}
+        >
+          {minimize || <StyledAppLogo src="/logo.png" />}
 
-      <MenuList minimize={minimize} />
+          <MenuList minimize={minimize} />
 
-      <MinimizeSidebarButton onClick={onClickHandle} minimize={minimize}/>
-
-    </Wrapper>
+          <MinimizeSidebarButton onClick={onClickHandle} minimize={minimize} />
+        </Wrapper>
+      )}
+    </Transition>
   );
 };
 
