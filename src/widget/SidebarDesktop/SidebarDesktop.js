@@ -7,13 +7,17 @@ import AppLogo from "../../shared/AppLogo";
 import MinimizeSidebarButton from "./component/MinimizeSidebarButton";
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  width: ${(props) => (props.minimize ? "60px" : "225px")};
-  height: 100%;
-  background-color: ${theme.surfaceA};
-  overflow-y: hidden;
+  display: none;
+
+  @media ${(props) => props.theme.breakpoint.lg} {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: ${(props) => (props.minimize ? "60px" : "225px")};
+    height: 100%;
+    background-color: ${theme.surfaceA};
+    overflow-y: hidden;
+  }
 `;
 
 const StyledAppLogo = styled(AppLogo)`
