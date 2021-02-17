@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Ripple } from "primereact/ripple";
 import ButtonWithOutlineBase from '../../../../shared/ButtonWithOutlineBase';
+import useTooltip from '../../../../shared/Tooltip';
 
 const Wrapper = styled(ButtonWithOutlineBase)`
   && {

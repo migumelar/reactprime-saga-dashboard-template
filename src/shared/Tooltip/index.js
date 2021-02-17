@@ -1,2 +1,5 @@
-import useTooltip from './useTooltip';
-export default useTooltip;
+import useTooltip from "./useTooltip";
+import Tooltip from "./Tooltip";
+
+export default Tooltip;
+export {useTooltip}

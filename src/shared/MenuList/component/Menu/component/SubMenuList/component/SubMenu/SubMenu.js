@@ -4,7 +4,7 @@ import ButtonWithOutlineBase from "../../../../../../../ButtonWithOutlineBase";
 import LeadingIcon from "./component/LeadingIcon";
 import MenuText from "./component/MenuText";
 // import Tooltip from '../../../../../../../Tooltip';
-import useTooltip from "../../../../../../../Tooltip/index";
+import {useTooltip} from "../../../../../../../Tooltip";
 
 const Wrapper = styled(ButtonWithOutlineBase)`
   background-color: ${(props) =>

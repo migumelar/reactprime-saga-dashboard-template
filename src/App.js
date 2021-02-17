@@ -40,21 +40,10 @@ function App() {
       <GlobalStyle />
 
       {/* 
-        I do this because global tooltip options seems like doens't work 
-        github issue: https://github.com/primefaces/primereact/issues/1811
-      */}
-
-      {/* hover tooltip */}
-      <Tooltip target=".rightTooltipHover" position="right" event="hover" />
-      <Tooltip target=".leftTooltipHover" position="left" event="hover" />
-      <Tooltip target=".topTooltipHover" position="top" event="hover" />
-      <Tooltip target=".bottomTooltipHover" position="bottom" event="hover" />
-
-      {/* focus tooltip */}
-      <Tooltip target=".rightTooltipFocus" position="right" event="focus" />
-      <Tooltip target=".leftTooltipfocus" position="left" event="focus" />
-      <Tooltip target=".topTooltipFocus" position="top" event="focus" />
-      <Tooltip target=".bottomTooltipFocus" position="bottom" event="focus" />
+          * global tooltip
+          * if you the target element is dynamically mounted and unmounted, use tooltip hooks instead
+       */}
+      <Tooltip />
 
       {/* <SidebarMobile /> */}
       <AppWrapper>
@@ -68,12 +57,12 @@ function App() {
           }}
         >
           <AppBar />
-          {/* <Button
+          <Button
             tooltip="Click to proceed"
             tooltipOptions={{ event: "focus" }}
           >
             Save
-          </Button> */}
+          </Button>
         </div>
       </AppWrapper>
     </ThemeProvider>
