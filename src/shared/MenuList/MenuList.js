@@ -24,6 +24,34 @@ const MenuList = ({minimize}) => {
 
       <Menu minimize={minimize} />
 
+      <Menu minimize={minimize} />
+
+{/* 
+      <Menu minimize={minimize} />
+
+
+      <Menu minimize={minimize} />
+
+
+      <Menu minimize={minimize} />
+
+      <Menu minimize={minimize} />
+
+      <Menu minimize={minimize} />
+
+      <Menu minimize={minimize} />
+
+      <Menu minimize={minimize} />
+
+      <Menu minimize={minimize} />
+
+      <Menu minimize={minimize} />
+
+      <Menu minimize={minimize} />
+
+      <Menu minimize={minimize} /> */}
+
+
       {/* <Menu minimize={minimize} />
 
       <Menu minimize={minimize} />
