@@ -3,6 +3,8 @@ import { Ripple } from "primereact/ripple";
 import ButtonWithOutlineBase from "../../../../../../../ButtonWithOutlineBase";
 import LeadingIcon from "./component/LeadingIcon";
 import MenuText from "./component/MenuText";
+// import Tooltip from '../../../../../../../Tooltip';
+import useTooltip from "../../../../../../../Tooltip/index";
 
 const Wrapper = styled(ButtonWithOutlineBase)`
   background-color: ${(props) =>
@@ -16,12 +18,20 @@ const Wrapper = styled(ButtonWithOutlineBase)`
 `;
 
 const SubMenu = ({ leadingIcon, subMenuText, minimize }) => {
+  const [tooltipClassName, Tooltip] = useTooltip({
+    position: "right",
+    event: "FocusAndHover",
+  });
+
+  console.log(tooltipClassName)
   return (
     <Wrapper
       minimize={minimize}
-      className="rightTooltipHover rightTooltipFocus"
+      className={tooltipClassName}
       data-pr-tooltip={minimize ? subMenuText : ""}
     >
+      {Tooltip}
+
       <Ripple />
 
       <LeadingIcon leadingIcon={`pi ${leadingIcon}`} />

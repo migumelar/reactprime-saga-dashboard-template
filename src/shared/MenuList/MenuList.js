@@ -15,7 +15,7 @@ const Wrapper = styled.ul`
     margin-bottom: 0.75rem;
   }
 `;
-
+// TODO: GENERATE GLOBAL TOOLTIP DINAMICALLY, OPTIONS: CUSTOM HOOKS OR CONTEXT
 const MenuList = ({minimize}) => {
   return (
     <Wrapper className="p-reset">
@@ -24,11 +24,11 @@ const MenuList = ({minimize}) => {
 
       <Menu minimize={minimize} />
 
-      <Menu minimize={minimize} />
+      {/* <Menu minimize={minimize} />
 
       <Menu minimize={minimize} />
 
-      <Menu minimize={minimize} />
+      <Menu minimize={minimize} /> */}
 
 
 
