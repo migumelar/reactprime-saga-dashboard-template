@@ -23,7 +23,6 @@ const SubMenu = ({ leadingIcon, subMenuText, minimize }) => {
     event: "FocusAndHover",
   });
 
-  console.log(tooltipClassName)
   return (
     <Wrapper
       minimize={minimize}
