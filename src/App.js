@@ -8,8 +8,9 @@ import "primeflex/primeflex.css";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import theme from "./styles/theme";
 // import Sidebar from "./component/sidebar/Sidebar";
-import { Tooltip, AppBar, SidebarMobile } from "./shared";
+import { Tooltip, AppBar } from "./shared";
 import SidebarDesktop from "./widget/SidebarDesktop";
+import SidebarMobile from "./widget/SidebarMobile";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -39,16 +40,17 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
 
-      {/* 
-          * global tooltip
-          * if you the target element is dynamically mounted and unmounted, use tooltip hooks instead
+      {/*
+       * global tooltip
+       * if you the target element is dynamically mounted and unmounted, use tooltip hooks instead
        */}
       <Tooltip />
 
       {/* <SidebarMobile /> */}
       <AppWrapper>
         {/* <SidebarMobile /> */}
-        <SidebarDesktop />
+        {/* <SidebarDesktop /> */}
+        <SidebarMobile />
         <div
           style={{
             width: "100%",
@@ -57,12 +59,12 @@ function App() {
           }}
         >
           <AppBar />
-          <Button
+          {/* <Button
             tooltip="Click to proceed"
             tooltipOptions={{ event: "focus" }}
           >
             Save
-          </Button>
+          </Button> */}
         </div>
       </AppWrapper>
     </ThemeProvider>
