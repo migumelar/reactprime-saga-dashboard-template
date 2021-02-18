@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PrimeReact from "primereact/api";
 import { Button } from "primereact/button";
 import "primereact/resources/themes/saga-blue/theme.css";
@@ -10,7 +10,10 @@ import theme from "./styles/theme";
 // import Sidebar from "./component/sidebar/Sidebar";
 import { Tooltip, AppBar } from "./shared";
 import SidebarDesktop from "./widget/SidebarDesktop";
-import SidebarMobile from "./widget/SidebarMobile";
+import SidebarMobile, {
+  SidebarMobileContext,
+  sidebarMobileState,
+} from "./widget/SidebarMobile";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -33,40 +36,48 @@ const AppWrapper = styled.div`
 `;
 
 function App() {
+
   // active ripple effect
   PrimeReact.ripple = true;
 
+  // sidebar mobile state
+  const [sidebarMobileVisible, setSidebarMobileVisible] = useState(false);
+
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <SidebarMobileContext.Provider
+        value={{ sidebarMobileVisible, setSidebarMobileVisible }}
+      >
+        <GlobalStyle />
 
-      {/*
-       * global tooltip
-       * if you the target element is dynamically mounted and unmounted, use tooltip hooks instead
-       */}
-      <Tooltip />
+        {/*
+         * global tooltip
+         * if you the target element is dynamically mounted and unmounted, use tooltip hooks instead
+         */}
+        <Tooltip />
 
-      {/* <SidebarMobile /> */}
-      <AppWrapper>
         {/* <SidebarMobile /> */}
-        {/* <SidebarDesktop /> */}
-        <SidebarMobile />
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <AppBar />
-          {/* <Button
+        <AppWrapper>
+          {/* <SidebarMobile /> */}
+          {/* <SidebarDesktop /> */}
+          <SidebarMobile />
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <AppBar />
+            {/* <Button
             tooltip="Click to proceed"
             tooltipOptions={{ event: "focus" }}
           >
             Save
           </Button> */}
-        </div>
-      </AppWrapper>
+          </div>
+        </AppWrapper>
+      </SidebarMobileContext.Provider>
     </ThemeProvider>
   );
 }
