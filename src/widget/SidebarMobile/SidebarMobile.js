@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Sidebar } from "primereact/sidebar";
 import AppLogo from "../../shared/AppLogo";
 import MenuList from "../../shared/MenuList";
