@@ -32,21 +32,16 @@ const SidebarMobile = () => {
   );
 
   return (
-    <>
-      <StyledSidebar
-        visible={sidebarMobileVisible}
-        onHide={() => setSidebarMobileVisible(!sidebarMobileVisible)}
-        dismissable
-        baseZIndex={1000000}
-        showCloseIcon={true}
-      >
-        <StyledAppLogo src="/logo.png" />
-        <StyledMenuList minimize={false} />
-      </StyledSidebar>
-      <button onClick={() => setSidebarMobileVisible(true)}>
-        Show sidebar
-      </button>
-    </>
+    <StyledSidebar
+      visible={sidebarMobileVisible}
+      onHide={() => setSidebarMobileVisible(!sidebarMobileVisible)}
+      dismissable
+      baseZIndex={1000000}
+      showCloseIcon={true}
+    >
+      <StyledAppLogo src="/logo.png" />
+      <StyledMenuList minimize={false} />
+    </StyledSidebar>
   );
 };
 

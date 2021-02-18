@@ -59,7 +59,7 @@ function App() {
         {/* <SidebarMobile /> */}
         <AppWrapper>
           {/* <SidebarMobile /> */}
-          {/* <SidebarDesktop /> */}
+          <SidebarDesktop />
           <SidebarMobile />
           <div
             style={{
@@ -69,12 +69,12 @@ function App() {
             }}
           >
             <AppBar />
-            {/* <Button
+            <Button
             tooltip="Click to proceed"
             tooltipOptions={{ event: "focus" }}
           >
             Save
-          </Button> */}
+          </Button>
           </div>
         </AppWrapper>
       </SidebarMobileContext.Provider>
