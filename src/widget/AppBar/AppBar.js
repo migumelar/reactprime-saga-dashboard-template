@@ -21,7 +21,7 @@ const AppBar = () => {
         <ToggleSidebarMobileButton className="pi p-reset p-ripple" />
       </LeadingToolbar>
 
-      {/* <TrailingToolbar /> */}
+      <TrailingToolbar />
     </Wrapper>
   );
 };

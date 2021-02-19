@@ -14,7 +14,7 @@ import SidebarMobile, {
   SidebarMobileContext,
   sidebarMobileState,
 } from "./widget/SidebarMobile";
-import AppBar from './widget/AppBar';
+import AppBar from "./widget/AppBar";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: ${theme.fontFamily};
     color: ${theme.textColor};
+    overflow-y: hidden;
   }
 `;
 
@@ -37,7 +38,6 @@ const AppWrapper = styled.div`
 `;
 
 function App() {
-
   // active ripple effect
   PrimeReact.ripple = true;
 
@@ -51,14 +51,17 @@ function App() {
       >
         <GlobalStyle />
 
+
+        {/* <SidebarMobile /> */}
+        <AppWrapper>
+
+
         {/*
          * global tooltip
          * if you the target element is dynamically mounted and unmounted, use tooltip hooks instead
          */}
         <Tooltip />
 
-        {/* <SidebarMobile /> */}
-        <AppWrapper>
           {/* <SidebarMobile /> */}
           <SidebarDesktop />
           <SidebarMobile />
@@ -71,11 +74,11 @@ function App() {
           >
             <AppBar />
             <Button
-            tooltip="Click to proceed"
-            tooltipOptions={{ event: "focus" }}
-          >
-            Save
-          </Button>
+              tooltip="Click to proceed"
+              tooltipOptions={{ event: "focus" }}
+            >
+              Save
+            </Button>
           </div>
         </AppWrapper>
       </SidebarMobileContext.Provider>

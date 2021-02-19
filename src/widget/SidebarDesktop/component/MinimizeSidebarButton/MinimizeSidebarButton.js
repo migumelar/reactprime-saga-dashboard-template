@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { Ripple } from "primereact/ripple";
-import ButtonWithOutlineBase from '../../../../shared/ButtonWithOutlineBase';
-import useTooltip from '../../../../shared/Tooltip';
+import ButtonWithOutlineBase from "../../../../shared/ButtonWithOutlineBase";
+import { useTooltip } from "../../../../shared/Tooltip";
 
 const Wrapper = styled(ButtonWithOutlineBase)`
   && {
-    border-top: 1px solid ${props => props.theme.surfaceD};
+    border-top: 1px solid ${(props) => props.theme.surfaceD};
     display: flex;
     padding: ${(props) => (props.minimize ? ".5rem" : "1rem")};
     align-items: center;
     justify-content: ${(props) => (props.minimize ? "center" : "flex-start")};
-    
+
     & > div {
       font-size: 1.125rem;
     }
@@ -21,26 +21,36 @@ const Wrapper = styled(ButtonWithOutlineBase)`
     }
 
     &:focus {
-      ${props => props.theme.primaryActiveState()}
+      ${(props) => props.theme.primaryActiveState()}
     }
-   
   }
 `;
 
-
 const MinimizeSidebarButton = ({ minimize, onClick }) => {
-    return (
-      <Wrapper
-        onClick={onClick}
-        minimize={minimize}
-        className="rightTooltipHover rightTooltipFocus p-reset p-ripple p-component"
-        data-pr-tooltip={`${minimize ? "Expand sidebar" : ""}`}
-      >
-        <Ripple />
-        <i className={`pi ${ minimize ? "pi-angle-double-right" : "pi-angle-double-left"}`} />
-        {minimize || <div>Minimize sidebar</div>}
-      </Wrapper>
-    );
-  };
-  
-  export default MinimizeSidebarButton;
+  const [tooltipClassName, Tooltip] = useTooltip({
+    position: "right",
+    event: "FocusAndHover",
+  });
+
+  return (
+    <Wrapper
+      onClick={onClick}
+      minimize={minimize}
+      // className="rightTooltipHover rightTooltipFocus p-reset p-ripple p-component"
+      className={`${tooltipClassName} p-reset p-ripple p-component`}
+      data-pr-tooltip={`${minimize ? "Expand sidebar" : ""}`}
+      // data-pr-tooltip={minimize ? subMenuText : ""}
+    >
+      {Tooltip}
+      <Ripple />
+      <i
+        className={`pi ${
+          minimize ? "pi-angle-double-right" : "pi-angle-double-left"
+        }`}
+      />
+      {minimize || <div>Minimize sidebar</div>}
+    </Wrapper>
+  );
+};
+
+export default MinimizeSidebarButton;
