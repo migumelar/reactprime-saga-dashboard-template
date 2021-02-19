@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import LeadingToolbar from "./component/LeadingToolbar";
 import ToggleSidebarMobileButton from "./component/LeadingToolbar/component/ToggleSidebarMobileButton";
+import TrailingToolbar from "./component/TrailingToolbar";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -19,6 +20,8 @@ const AppBar = () => {
       <LeadingToolbar>
         <ToggleSidebarMobileButton className="pi p-reset p-ripple" />
       </LeadingToolbar>
+
+      {/* <TrailingToolbar /> */}
     </Wrapper>
   );
 };
