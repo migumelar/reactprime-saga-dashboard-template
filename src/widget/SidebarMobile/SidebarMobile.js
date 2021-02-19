@@ -37,7 +37,7 @@ const SidebarMobile = () => {
       onHide={() => setSidebarMobileVisible(!sidebarMobileVisible)}
       dismissable
       baseZIndex={1000000}
-      showCloseIcon={true}
+      showCloseIcon={false}
     >
       <StyledAppLogo src="/logo.png" />
       <StyledMenuList minimize={false} />
