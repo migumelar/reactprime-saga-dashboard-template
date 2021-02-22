@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    position: relative;
     padding: 0;
     margin: 0;
     font-family: ${theme.fontFamily};
@@ -51,16 +52,13 @@ function App() {
       >
         <GlobalStyle />
 
-
         {/* <SidebarMobile /> */}
         <AppWrapper>
-
-
-        {/*
-         * global tooltip
-         * if you the target element is dynamically mounted and unmounted, use tooltip hooks instead
-         */}
-        <Tooltip />
+          {/*
+           * global tooltip
+           * if you the target element is dynamically mounted and unmounted, use tooltip hooks instead
+           */}
+          <Tooltip />
 
           {/* <SidebarMobile /> */}
           <SidebarDesktop />
@@ -73,12 +71,13 @@ function App() {
             }}
           >
             <AppBar />
-            <Button
+            {/* <Button
               tooltip="Click to proceed"
               tooltipOptions={{ event: "focus" }}
             >
               Save
-            </Button>
+            </Button> */}
+            <div>asdasdad asda asdada asd as dasdasd asdsa</div>
           </div>
         </AppWrapper>
       </SidebarMobileContext.Provider>
