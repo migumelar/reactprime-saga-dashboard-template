@@ -5,12 +5,8 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
-  /* align-items: flex-end; */
   position: relative;
   background-color: red;
-  /* width: 250px; */
-  /* top: 100%; */
-  /* right: 0; */
 `;
 
 const ShortcutMenuBackdrop = styled.div`
@@ -29,13 +25,14 @@ const ShortcutMenuBackdrop = styled.div`
 
 const ShortcutMenuContent = styled.div`
   position: fixed;
-  background-color: ${props => props.theme.surfaceA};
+  background-color: ${(props) => props.theme.surfaceA};
   width: 250px;
   z-index: 150;
   top: ${(props) => props.topPosition}px;
   right: ${(props) => props.rightPosition}px;
   padding: 1rem;
   border-radius: 3px;
+  transition: transform 500ms ease-in-out;
 `;
 
 const ShortcutMenu = ({ parentRef, isMenuOpen, setIsMenuOpen, appBarRef }) => {
@@ -48,12 +45,6 @@ const ShortcutMenu = ({ parentRef, isMenuOpen, setIsMenuOpen, appBarRef }) => {
   const topPosition =
     appBarRef.current.offsetHeight + appBarRef.current.offsetTop;
 
-  console.log(appBarRef);
-
-  //   console.log(leftPosition);
-
-  //   console.log(parentRef);
-
   return ReactDOM.createPortal(
     <Wrapper>
       <ShortcutMenuContent
@@ -61,7 +52,7 @@ const ShortcutMenu = ({ parentRef, isMenuOpen, setIsMenuOpen, appBarRef }) => {
         rightPosition={rightPosition}
         topPosition={topPosition}
       >
-        asdasd asda asd a adsadad adsa
+        Logout
       </ShortcutMenuContent>
       <ShortcutMenuBackdrop onClick={() => setIsMenuOpen(false)} />
     </Wrapper>,
