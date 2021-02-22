@@ -1,9 +1,9 @@
 import UserShortcut from "./component/UserShortcut";
 
-const TrailingToolbar = ({ children }) => {
+const TrailingToolbar = ({ appBarRef, children }) => {
   return (
     <div>
-      <UserShortcut />
+      <UserShortcut appBarRef={appBarRef} />
     </div>
   );
 };

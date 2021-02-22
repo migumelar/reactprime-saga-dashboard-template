@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const AppWrapper = styled.div`
+  margin: 0 auto;
   display: flex;
   height: 100vh;
   width: 100%;

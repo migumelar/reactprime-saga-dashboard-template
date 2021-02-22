@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import styled from "styled-components";
 import LeadingToolbar from "./component/LeadingToolbar";
 import ToggleSidebarMobileButton from "./component/LeadingToolbar/component/ToggleSidebarMobileButton";
@@ -15,13 +16,15 @@ const Wrapper = styled.div`
 `;
 
 const AppBar = () => {
+  const appBarRef = useRef(null);
+
   return (
-    <Wrapper>
+    <Wrapper ref={appBarRef}>
       <LeadingToolbar>
         <ToggleSidebarMobileButton className="pi p-reset p-ripple" />
       </LeadingToolbar>
 
-      <TrailingToolbar />
+      <TrailingToolbar appBarRef={appBarRef} />
     </Wrapper>
   );
 };

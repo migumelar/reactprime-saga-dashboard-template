@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Avatar } from "primereact/avatar";
 import ShortcutMenu from "./ShortcutMenu";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Wrapper = styled.button`
   display: flex;
@@ -35,18 +35,26 @@ const Wrapper = styled.button`
   }
 `;
 
-const UserShortcut = () => {
+const UserShortcut = ({appBarRef}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const parentRef = useRef(null);
+
 
   return (
     <>
-      <Wrapper className="p-reset" onClick={() => setIsMenuOpen(true)}>
+      <Wrapper ref={parentRef} className="p-reset" onClick={() => setIsMenuOpen(true)}>
         <Avatar label="P" size="large" />
         <div>
           <i className="pi pi-chevron-down" />
         </div>
       </Wrapper>
-      <ShortcutMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <ShortcutMenu
+        appBarRef={appBarRef}
+        parentRef={parentRef}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+      />
     </>
   );
 };
