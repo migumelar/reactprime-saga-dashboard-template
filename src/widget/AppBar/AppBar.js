@@ -15,6 +15,12 @@ const Wrapper = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.surfaceC};
 `;
 
+const AppBarTitle = styled.div`
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+`
+
 const AppBar = () => {
   const appBarRef = useRef(null);
 
@@ -22,6 +28,7 @@ const AppBar = () => {
     <Wrapper ref={appBarRef}>
       <LeadingToolbar>
         <ToggleSidebarMobileButton className="pi p-reset p-ripple" />
+        <AppBarTitle>Products</AppBarTitle>
       </LeadingToolbar>
 
       <TrailingToolbar appBarRef={appBarRef} />
