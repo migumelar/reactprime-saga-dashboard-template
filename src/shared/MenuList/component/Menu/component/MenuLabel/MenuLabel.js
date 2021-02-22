@@ -10,7 +10,7 @@ const Wrapper = styled(ButtonWithOutlineBase)`
   justify-content: center;
   flex-direction: row;
   width: 100%;
-  padding: 8px;
+  padding: 7px 15px;
   border-radius: 5px;
 `;
 

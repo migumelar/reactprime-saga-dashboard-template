@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ReactDOM from "react-dom";
 
+// TODO : RESPONSIVE MENU BAR AND RESPONSIVE APP BAR
 const Wrapper = styled.div`
   position: relative;
   display: flex;

@@ -9,7 +9,8 @@ const Wrapper = styled.li`
   align-items: center;
   justify-content: space-between;
   border-radius: 5px;
-  width: 100%;
+  width: 100;
+  /* border: 1px solid red; */
 `;
 
 const Menu = ({ className, minimize }) => {
@@ -23,7 +24,7 @@ const Menu = ({ className, minimize }) => {
         minimize={minimize}
         showSubMenu={showSubMenu}
         onClick={onClickHandle}
-        leadingIcon="pi-wallet"
+        leadingIcon="pi-moon"
         menuText="Dashboard"
       />
 
