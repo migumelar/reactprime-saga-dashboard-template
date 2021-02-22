@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Avatar } from "primereact/avatar";
-import ShortcutMenu from './ShortcutMenu';
+import ShortcutMenu from "./ShortcutMenu";
+import { useState } from "react";
 
 const Wrapper = styled.button`
   display: flex;
@@ -34,50 +35,19 @@ const Wrapper = styled.button`
   }
 `;
 
-// const ShortcutMenuBackdrop = styled.div`
-//   position: fixed;
-//   z-index: 100;
-//   top: 0;
-//   left: 0;
-//   height: 100vh;
-//   width: 100vw;
-//   border: 1px solid black;
-//   display: flex;
-//   flex-direction: column;
-//   background-color: black;
-//   opacity: 1;
-//   /* cursor: wait; */
-// `;
-
-// const ShortcutMenuContent = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-end;
-//   position: absolute;
-//   top: 100%;
-//   right: 0;
-//   background-color: white;
-//   width: 250px;
-// `;
-
 const UserShortcut = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <Wrapper className="p-reset" onClick={()=> console.log('shortcut clicked')}>
-      <Avatar label="P" size="large" />
-
-      <div>
-        <i className="pi pi-chevron-down" />
-      </div>
-
-      <ShortcutMenu/>
-
-      {/* <ShortcutMenuContent>
-        <div style={{ zIndex: 150, backgroundColor: "white", width: '100%' }}>
-          asdasd asda asd a adsadad adsa
+    <>
+      <Wrapper className="p-reset" onClick={() => setIsMenuOpen(true)}>
+        <Avatar label="P" size="large" />
+        <div>
+          <i className="pi pi-chevron-down" />
         </div>
-        <ShortcutMenuBackdrop onClick={()=> console.log('backdrop clicked')}></ShortcutMenuBackdrop>
-      </ShortcutMenuContent> */}
-    </Wrapper>
+      </Wrapper>
+      <ShortcutMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+    </>
   );
 };
 
