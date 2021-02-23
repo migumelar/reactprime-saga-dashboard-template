@@ -9,12 +9,9 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import theme from "./styles/theme";
 // import Sidebar from "./component/sidebar/Sidebar";
 import { Tooltip } from "./shared";
-import SidebarDesktop from "./widget/SidebarDesktop";
-import SidebarMobile, {
-  SidebarMobileContext,
-  sidebarMobileState,
-} from "./widget/SidebarMobile";
-import AppBar from "./widget/AppBar";
+import SidebarDesktop from "./widgets/SidebarDesktop";
+import SidebarMobile, { SidebarMobileContext } from "./widgets/SidebarMobile";
+import AppBar from "./widgets/AppBar";
 
 const GlobalStyle = createGlobalStyle`
   *{
