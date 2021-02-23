@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ReactDOM from "react-dom";
+import { useEffect, useRef, useState, useCallback } from "react";
 
-// TODO : RESPONSIVE MENU BAR AND RESPONSIVE APP BAR
 const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -24,34 +24,75 @@ const ShortcutMenuBackdrop = styled.div`
   opacity: 0;
 `;
 
-const ShortcutMenuContent = styled.div`
+const ShortcutMenuContent = styled.div.attrs((props) => ({
+  style: {
+    top: props.YPosition + "px",
+    left: ( props.windowWidth > props.theme.screenBreakpoint.md ? props.XPosition : 0) + "px",
+  },
+}))`
   position: fixed;
   background-color: ${(props) => props.theme.surfaceA};
-  width: 250px;
+  left: 0;
+  width: 100%;
   z-index: 150;
-  top: ${(props) => props.topPosition}px;
-  right: ${(props) => props.rightPosition}px;
   padding: 1rem;
   border-radius: 3px;
-  transition: transform 500ms ease-in-out;
+
+  @media ${(props) => props.theme.breakpoint.md} {
+    width: unset;
+  }
 `;
 
-const ShortcutMenu = ({ parentRef, isMenuOpen, setIsMenuOpen, appBarRef }) => {
+const ShortcutMenu = ({
+  parentRef,
+  isMenuOpen,
+  setIsMenuOpen,
+  appBarRef,
+  menuPosition = "right",
+}) => {
+  const currentRef = useRef(null);
+  const [XPosition, setXPosition] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleWindowResize = useCallback((event) => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+  // calculate submenu position
+  useEffect(() => {
+    if (isMenuOpen) {
+      let right =
+        parentRef.current.offsetLeft +
+        parentRef.current.offsetWidth -
+        currentRef.current.clientWidth;
+
+      let left = parentRef.current.offsetLeft;
+
+      setXPosition(menuPosition === "right" ? right : left);
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMenuOpen, windowWidth]);
+
   if (!isMenuOpen) return null;
 
-  const rightPosition =
-    document.body.clientWidth -
-    (parentRef.current.offsetLeft + parentRef.current.offsetWidth);
-
-  const topPosition =
+  const YPosition =
     appBarRef.current.offsetHeight + appBarRef.current.offsetTop;
 
   return ReactDOM.createPortal(
     <Wrapper>
       <ShortcutMenuContent
         className="p-shadow-4"
-        rightPosition={rightPosition}
-        topPosition={topPosition}
+        windowWidth={windowWidth}
+        XPosition={XPosition}
+        YPosition={YPosition}
+        ref={currentRef}
       >
         Logout
       </ShortcutMenuContent>

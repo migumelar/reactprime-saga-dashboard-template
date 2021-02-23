@@ -50,6 +50,7 @@ const UserShortcut = ({appBarRef}) => {
         </div>
       </Wrapper>
       <ShortcutMenu
+        menuPosition="right"
         appBarRef={appBarRef}
         parentRef={parentRef}
         isMenuOpen={isMenuOpen}

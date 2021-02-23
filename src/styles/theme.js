@@ -20,6 +20,13 @@ const theme = {
     color: ${theme.primaryColorText};
     `;
   },
+  screenBreakpoint: {
+    sm: 640,
+    md: 768,
+    lg: 1024,
+    xl: 1280,
+    "2xl": 1536,
+  },
   breakpoint: {
     sm: "(min-width: 640px)",
     md: "(min-width: 768px)",
