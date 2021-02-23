@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Avatar } from "primereact/avatar";
-import ShortcutMenu from "./ShortcutMenu";
+// import ShortcutMenu from "./ShortcutMenu";
+import CollapsibleMenu from '../../../../shared/CollapsibleMenu'
 import { useState, useRef } from "react";
 
 const Wrapper = styled.button`
@@ -48,7 +49,7 @@ const UserShortcut = ({appBarRef}) => {
           <i className="pi pi-chevron-down" />
         </div>
       </Wrapper>
-      <ShortcutMenu
+      <CollapsibleMenu
         menuPosition="right"
         appBarRef={appBarRef}
         parentRef={parentRef}

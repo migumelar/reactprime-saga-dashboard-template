@@ -24,7 +24,7 @@ const ShortcutMenuBackdrop = styled.div`
   opacity: 0;
 `;
 
-const ShortcutMenuContent = styled.div.attrs((props) => ({
+const CollapsibleMenuContent = styled.div.attrs((props) => ({
   style: {
     top: props.YPosition + "px",
     left: ( props.windowWidth > props.theme.screenBreakpoint.md ? props.XPosition : 0) + "px",
@@ -43,7 +43,7 @@ const ShortcutMenuContent = styled.div.attrs((props) => ({
   }
 `;
 
-const ShortcutMenu = ({
+const CollapsibleMenu = ({
   parentRef,
   isMenuOpen,
   setIsMenuOpen,
@@ -87,7 +87,7 @@ const ShortcutMenu = ({
 
   return ReactDOM.createPortal(
     <Wrapper>
-      <ShortcutMenuContent
+      <CollapsibleMenuContent
         className="p-shadow-4"
         windowWidth={windowWidth}
         XPosition={XPosition}
@@ -95,11 +95,11 @@ const ShortcutMenu = ({
         ref={currentRef}
       >
         Logout
-      </ShortcutMenuContent>
+      </CollapsibleMenuContent>
       <ShortcutMenuBackdrop onClick={() => setIsMenuOpen(false)} />
     </Wrapper>,
     document.getElementById("shortcutMenuPortal")
   );
 };
 
-export default ShortcutMenu;
+export default CollapsibleMenu;
