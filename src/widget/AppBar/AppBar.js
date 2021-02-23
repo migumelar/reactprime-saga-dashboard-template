@@ -18,7 +18,6 @@ const Wrapper = styled.div`
 const AppBarTitle = styled.div`
   font-weight: 400;
   font-size: 1.3rem;
-  letter-spacing: 2px;
 `
 
 const AppBar = () => {
@@ -28,7 +27,7 @@ const AppBar = () => {
     <Wrapper ref={appBarRef}>
       <LeadingToolbar>
         <ToggleSidebarMobileButton className="pi p-reset p-ripple" />
-        <AppBarTitle>Products</AppBarTitle>
+        <AppBarTitle>Some Long Title</AppBarTitle>
       </LeadingToolbar>
 
       <TrailingToolbar appBarRef={appBarRef} />
