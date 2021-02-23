@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ReactDOM from "react-dom";
 import { useEffect, useRef, useState, useCallback } from "react";
+import useViewport from "../../../../hooks/useViewport";
 
 const Wrapper = styled.div`
   position: relative;
@@ -27,7 +28,10 @@ const ShortcutMenuBackdrop = styled.div`
 const CollapsibleMenuContent = styled.div.attrs((props) => ({
   style: {
     top: props.YPosition + "px",
-    left: ( props.windowWidth > props.theme.screenBreakpoint.md ? props.XPosition : 0) + "px",
+    left:
+      (props.windowWidth > props.theme.screenBreakpoint.md
+        ? props.XPosition
+        : 0) + "px",
   },
 }))`
   position: fixed;
@@ -52,13 +56,9 @@ const CollapsibleMenu = ({
 }) => {
   const currentRef = useRef(null);
   const [XPosition, setXPosition] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const { windowWidth } = useViewport();
 
-  const handleWindowResize = useCallback((event) => {
-    setWindowWidth(window.innerWidth);
-  }, []);
-
-  // calculate submenu position
+  // calculate submenu position by listening to screen width
   useEffect(() => {
     if (isMenuOpen) {
       let right =
@@ -70,12 +70,6 @@ const CollapsibleMenu = ({
 
       setXPosition(menuPosition === "right" ? right : left);
     }
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMenuOpen, windowWidth]);
