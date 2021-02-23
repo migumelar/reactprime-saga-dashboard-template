@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import PrimeReact from "primereact/api";
-import { Button } from "primereact/button";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import theme from "./styles/theme";
-// import Sidebar from "./component/sidebar/Sidebar";
 import { Tooltip } from "./shared";
-import SidebarDesktop from "./widgets/SidebarDesktop";
-import SidebarMobile, { SidebarMobileContext } from "./widgets/SidebarMobile";
-import AppBar from "./widgets/AppBar";
+import { SidebarMobileContext } from "./widgets/SidebarMobile";
+import TestPage from "./features/TestPage";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -31,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
 const AppWrapper = styled.div`
   margin: 0 auto;
   display: flex;
+  flex-direction: row;
   height: 100vh;
   width: 100%;
   max-width: 1536px;
@@ -50,7 +48,6 @@ function App() {
       >
         <GlobalStyle />
 
-        {/* <SidebarMobile /> */}
         <AppWrapper>
           {/*
            * global tooltip
@@ -58,25 +55,8 @@ function App() {
            */}
           <Tooltip />
 
-          {/* <SidebarMobile /> */}
-          <SidebarDesktop />
-          <SidebarMobile />
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <AppBar />
-            {/* <Button
-              tooltip="Click to proceed"
-              tooltipOptions={{ event: "focus" }}
-            >
-              Save
-            </Button> */}
-            <div>asdasdad asda asdada asd as dasdasd asdsa</div>
-          </div>
+          <TestPage />
+
         </AppWrapper>
       </SidebarMobileContext.Provider>
     </ThemeProvider>

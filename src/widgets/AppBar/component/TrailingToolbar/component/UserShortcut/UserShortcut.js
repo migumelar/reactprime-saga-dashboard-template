@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Avatar } from "primereact/avatar";
-// import ShortcutMenu from "./ShortcutMenu";
 import CollapsibleMenu from '../../../../shared/CollapsibleMenu'
 import { useState, useRef } from "react";
 
