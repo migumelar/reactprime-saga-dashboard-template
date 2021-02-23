@@ -6,6 +6,7 @@ import { useContext } from "react";
 const Wrapper = styled.button`
   display: flex;
   align-items: center;
+  margin-right:1rem;
   cursor: pointer;
 
   @media ${(props) => props.theme.breakpoint.lg} {
