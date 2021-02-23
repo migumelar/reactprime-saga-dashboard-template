@@ -7,6 +7,7 @@ const Wrapper = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border: none;
   background-color: ${(props) => props.theme.surfaceA};
   position: relative;
@@ -25,8 +26,6 @@ const Wrapper = styled.button`
   }
 
   & > div {
-    display: flex;
-    align-items: center;
     color: ${(props) => props.theme.textColor};
 
     & > i {
