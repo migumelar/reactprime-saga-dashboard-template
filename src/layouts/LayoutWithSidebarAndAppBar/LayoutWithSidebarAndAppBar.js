@@ -2,12 +2,15 @@ import styled from "styled-components";
 import SidebarDesktop from "../../widgets/SidebarDesktop";
 import SidebarMobile from "../../widgets/SidebarMobile";
 import AppBar from "../../widgets/AppBar";
+import ContentContainer from '../shared/ContentContainer';
 
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: ${props => props.theme.surfaceB};
 `;
+
 
 const LayoutWithSidebarAndAppBar = ({children}) => {
   return (
@@ -18,9 +21,9 @@ const LayoutWithSidebarAndAppBar = ({children}) => {
       <Wrapper>
           <AppBar/>
 
-          <div>
+          <ContentContainer>
               {children}
-          </div>
+          </ContentContainer>
       </Wrapper>
     </>
   );

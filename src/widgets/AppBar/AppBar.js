@@ -12,7 +12,9 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid ${(props) => props.theme.surfaceC};
+  border-bottom: 1px solid ${(props) => props.theme.surfaceD};
+  background-color: ${props => props.theme.surfaceA};
+
 `;
 
 const AppBarTitle = styled.div`
