@@ -2,7 +2,11 @@ import LayoutWithSidebarAndAppBar from "../../layouts/LayoutWithSidebarAndAppBar
 
 const TestPage = () => {
   return (
-    <LayoutWithSidebarAndAppBar>
+    <LayoutWithSidebarAndAppBar
+      contentTitleText="Products" 
+      contentSubTitleText="Manage your store products"
+      withTitleDivider={true}
+      >
       mamamamammama nananannanaa
     </LayoutWithSidebarAndAppBar>
   );
